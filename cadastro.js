@@ -12,14 +12,14 @@ function salvarCadastro() {
 }
 
 function registro() {
+    let usuario = document.getElementById("usuario").value;
     let email = document.getElementById("email").value;
     let senha = document.getElementById("senha").value;
-    let senhaCo = document.getElementById("senhaCo").value;
 
-    if (!email || !senha || !senhaCo || senha != senhaCo) {
-        document.getElementById("aviso").innerHTML = "verifique se Senha ou email são estao corretos";
+    if (!email || !email || !senha) {
+        document.getElementById("aviso").innerHTML = "verifique se os campos estao preenchidos corretamente";
     } else {
-        cadastro.push({ email: email, senha: senha });
+        cadastro.push({user: usuario, email: email, senha: senha });
         salvarCadastro();
         window.location = "login.html";
     }
