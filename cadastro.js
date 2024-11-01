@@ -1,5 +1,9 @@
 let cadastro = [];
 
+let usuario = document.getElementById("usuario");
+let email = document.getElementById("email");
+let senha = document.getElementById("senha");
+
 function carregarCadastro() {
     let dados = localStorage.getItem("cadastro");
     if (dados) {
@@ -12,16 +16,19 @@ function salvarCadastro() {
 }
 
 function registro() {
-    let usuario = document.getElementById("usuario").value;
-    let email = document.getElementById("email").value;
-    let senha = document.getElementById("senha").value;
+    let user = {
+        username: usuario.value,
+        email: email.value,
+        senha: senha.value
+    }
 
-    if (!email || !email || !senha) {
-        document.getElementById("aviso").innerHTML = "verifique se os campos estao preenchidos corretamente";
+    if (existe(user.username, user.email) == true) {
+        document.getElementById("aviso").innerHTML = "Usuario já cadastrado!";
     } else {
-        cadastro.push({user: usuario, email: email, senha: senha });
+        cadastro.push(user);
         salvarCadastro();
-        window.location = "login.html";
+        document.getElementById("aviso").innerHTML = "Usuario cadastrado";
+        //window.location = "login.html";
     }
 }
 
@@ -29,28 +36,47 @@ function registro() {
 function login() {
     let email = document.getElementById("email").value;
     let senha = document.getElementById("senha").value;
-    let usuarioEncontrado = cadastro.find(user => user.email === email && user.senha === senha);
+    let login = false;
 
-    if (!usuarioEncontrado) {
-        document.getElementById("aviso").innerHTML = "Senha ou email inválido";
-    } else {
+    if (authentica(email, senha) == true) {
         document.getElementById("aviso").innerHTML = "Login efetuado com sucesso";
+        login = true;
+    } else {
+        document.getElementById("aviso").innerHTML = "Senha ou email inválido";
     }
 }
 
-function resetPass() {
+function resetPass() { //focar caso finalizar outras opçoes mais importantes
+    let email = document.getElementById("email").value;
     let senha = document.getElementById("senha").value;
     let senhaCo = document.getElementById("senhaCo").value;
-    let usuario = cadastro.find(user => senha)
 
-    if ( !senha || !senhaCo || senha != senhaCo) {
-        document.getElementById("aviso").innerHTML = "Senhas não conferem";
-    } else {
-        usuario.senha = senha;
+    if (authentica(email) == true && senha == senhaCo) {
+        user.senha = senha;
         salvarCadastro();
         document.getElementById("aviso").innerHTML = "Senha alterada com sucesso";
+    } else {
+        document.getElementById("aviso").innerHTML = "Senhas não conferem";
     }
 
+}
+
+function existe(username, email) {
+    for (let user of cadastro) {
+        if (user.username == username || user.email == email) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function authentica(email, senha) {
+    for (let user of cadastro) {
+        if (user.email == email && user.senha == senha) {
+            return true;
+        }
+    }
+    return false;
 }
 
 window.onload = carregarCadastro();
