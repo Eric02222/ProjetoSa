@@ -10,11 +10,26 @@ function carregarPe() {
     }
 }
 
-carregarLogin();
-
 function salvarPe() {
     localStorage.setItem("pergunta", JSON.stringify(perguntas));
 }
+
+function irPgPerguntar(){
+    window.location = "criarPe.html"
+}
+
+function irPgLogin(){
+    window.location = "login.html"
+}
+
+function irPgCadastro(){
+    window.location = "singUp.html"
+}
+
+
+
+
+carregarLogin();
 
 function enviarPe() {
     let questao = {
@@ -24,13 +39,11 @@ function enviarPe() {
         descricao: descricao.value
     }
 
-
     if (!titulo || !descricao) {
         document.getElementById("aviso").innerHTML = "Preencha todos os campos"
     } else {
         perguntas.push(questao);
         salvarPe();
-
         document.getElementById("aviso").innerHTML = "Pergunta Enviada com sucesso";
     }
 
@@ -39,10 +52,13 @@ function enviarPe() {
 
 }
 
+function exibirPe(){
+
+}
+
 /*function editar() {
     window.location = "criarPe.html";
 }*/
-
 
 
 window.onload = carregarPe();
