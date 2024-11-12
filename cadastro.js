@@ -5,6 +5,7 @@ let logado = [];
 let usuario = document.getElementById("usuario");
 let email = document.getElementById("email");
 let senha = document.getElementById("senha");
+let estaLogado = false;
 
 function carregarCadastro() {
     let dados = localStorage.getItem("cadastro");
@@ -60,13 +61,15 @@ function login() {
     let userLogado = {
         username: nomerUsuario,
         email: document.getElementById("email").value,
-        senha: document.getElementById("senha").value
+        senha: document.getElementById("senha").value,
+        estaLogado: estaLogado
     }
 
     if (indexOfByEmail(userLogado.email) == 1) {
         document.getElementById("aviso").innerHTML = "Você já está logado em sua conta!";
     } else if (authentica(userLogado.email, userLogado.senha) == true) {
         document.getElementById("aviso").innerHTML = "Login efetuado com sucesso";
+        estaLogado = true;
         logado.push(userLogado);
         salvarLogin();
         window.location = "main.html";
