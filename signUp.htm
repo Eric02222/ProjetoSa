@@ -9,21 +9,25 @@
 </head>
 
 <body>
-    <h3>Registra-se</h3>
+    <div class="container">
+        <div class="cabecario">
+            <p class="nomeSite">nome do site</p>
 
-    <div class="inputs">
-        <input type="text" id="usuario" placeholder="Usuario"><br>
+        </div>
 
-        <input type="email" id="email" placeholder="Email"><br>
+        <div class="cadastro">
+            <h3>Registra-se</h3>
 
-        <input type="password" id="senha" placeholder="Senha"><br>
+            <input type="text" id="usuario" placeholder="Usuario"><br>
+            <input type="email" id="email" placeholder="Email"><br>
+            <input type="password" id="senha" placeholder="Senha"><br>
+            <a href="login.html">Login</a>
 
-        <a href="login.html">Login</a>
-        <a href="resetPass.htm">Esqueceu a senha</a><br>
+            <p id="aviso"></p>
 
-        <p id="aviso"></p>
+            <button onclick="registro()">Registra-se</button>
+        </div>
 
-        <button onclick="registro()">Registra-se</button>
     </div>
 
     <script src="cadastro.js"></script>

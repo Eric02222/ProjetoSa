@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Projeto Sa</title>
+    <title>Login</title>
 </head>
+
 <body>
-    <h3>Login</h3>
+    <div class="container">
 
-    <input type="email" id="email" placeholder="Email"><br>
+        <div class="cabecario">
+            <p class="nomeSite">nome do site</p>
+        </div>
 
-    <input type="password" id="senha" placeholder="Senha"><br>
+        <div class="login">
+            <h3>Login</h3>
 
-    <a href="signUp.htm">Registra-se</a>
-    <a href="resetPass.htm">Esqueceu a senha</a><br>
+        <input type="email" id="email" placeholder="Email"><br>
+        <input type="password" id="senha" placeholder="Senha"><br>
+        <a href="signUp.htm">Registra-se</a><br>
+        <p id="aviso"></p>
 
-    <p id="aviso"></p>
+        <button onclick="login()">Login</button>
 
-    <button onclick="login()">Login</button>
+        </div>
+        
+    </div>
 
 
     <script src="cadastro.js"></script>
 </body>
+
 </html>
