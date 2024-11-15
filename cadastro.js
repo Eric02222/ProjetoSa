@@ -8,6 +8,7 @@ let senha = document.getElementById("senha");
 let aviso = document.getElementById("aviso");
 
 // Função para carregar cadastro do localStorage
+// Função para carregar cadastro do localStorage
 function carregarCadastro() {
     let dados = localStorage.getItem("cadastro");
     if (dados) {
@@ -15,6 +16,7 @@ function carregarCadastro() {
     }
 }
 
+// Função para salvar cadastro no localStorage
 // Função para salvar cadastro no localStorage
 function salvarCadastro() {
     localStorage.setItem("cadastro", JSON.stringify(cadastro));
