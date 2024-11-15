@@ -16,23 +16,20 @@ function salvarPe() {
 }
 
 function irPgPerguntar() {
-    if(logado.length == 0) {
+    if (logado.length == 0) {
         alert("E necessario crira uma conta")
-    }else{
-        window.location = "criarPe.html"
+    } else {
+        window.location.href = "criarPe.html"
     }
 }
 
 function irPgLogin() {
-    window.location = "login.html"
+    window.location.href = "login.html"
 }
 
 function irPgCadastro() {
-    window.location = "signUp.html"
+    window.location.href = "signUp.html"
 }
-
-
-
 
 carregarLogin();
 
@@ -57,33 +54,14 @@ function enviarPe() {
 
 }
 
-function exibirPe() {
-    carregarPe();
 
-for(let i = 0; i < perguntas.length; i++) {
-    if (perguntas) {
-        let titulo = perguntas[i].titulo;
-        let descricao = perguntas[i].descricao;
-        let usuario = perguntas[i].usuario;
 
-        document.getElementById("titulo").innerHTML += titulo;
-        document.getElementById("descricao").innerHTML += descricao;
-        document.getElementById("usuario").innerHTML += usuario;
-    }else{
-        console.log("Nenhuma pergunta encontrada")
+function authentica(titulo, descricao) {
+    for (let i = 0; i < perguntas.length; ++i) {
+        if (perguntas.titulo === titulo && perguntas.descricao === descricao) {
+            return i;
+        }
     }
-
-
-}
-   
-
 }
 
-/*function editar() {
-    window.location = "criarPe.html";
-}*/
-
-window.onload = function(){
-    carregarPe();
-    exibirPe();
-}
+window.onload = carregarPe();
