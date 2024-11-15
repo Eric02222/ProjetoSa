@@ -1,11 +1,13 @@
 let cadastro = [];
-
 let logado = [];
 
+// Buscar elementos do DOM
 let usuario = document.getElementById("usuario");
 let email = document.getElementById("email");
 let senha = document.getElementById("senha");
+let aviso = document.getElementById("aviso");
 
+// Função para carregar cadastro do localStorage
 function carregarCadastro() {
     let dados = localStorage.getItem("cadastro");
     if (dados) {
@@ -13,10 +15,12 @@ function carregarCadastro() {
     }
 }
 
+// Função para salvar cadastro no localStorage
 function salvarCadastro() {
     localStorage.setItem("cadastro", JSON.stringify(cadastro));
 }
 
+// Função para carregar login do localStorage
 function carregarLogin() {
     let dadosUser = localStorage.getItem("login");
     if (dadosUser) {
@@ -24,10 +28,12 @@ function carregarLogin() {
     }
 }
 
+// Função para salvar login no localStorage
 function salvarLogin() {
     localStorage.setItem("login", JSON.stringify(logado));
 }
 
+// Função para registrar um novo usuário
 function registro() {
     let user = {
         username: usuario.value,
@@ -36,14 +42,14 @@ function registro() {
     }
 
     if (!user.username || !user.email || !user.senha) {
-        document.getElementById("aviso").innerHTML = "Preencha todos os campos";
-    } else if (existe(user.username, user.email) == true) {
-        document.getElementById("aviso").innerHTML = "Usuario já cadastrado!";
+        aviso.innerHTML = "Preencha todos os campos";
+    } else if (existe(user.username, user.email)) {
+        aviso.innerHTML = "Usuário já cadastrado!";
     } else {
         cadastro.push(user);
         salvarCadastro();
-        document.getElementById("aviso").innerHTML = "Usuario cadastrado";
-        window.location = "login.html";
+        aviso.innerHTML = "Usuário cadastrado com sucesso!";
+        window.location = "login.html";  // Redireciona para a tela de login após o cadastro
     }
 
     usuario.value = null;
@@ -51,56 +57,65 @@ function registro() {
     senha.value = null;
 }
 
-
+// Função de login
 function login() {
-    let pos = indexOfByEmail(document.getElementById("email").value);
-    console.log(pos)
-    let nomerUsuario = cadastro[pos].username;
-
-    let userLogado = {
-        username: nomerUsuario,
-        email: document.getElementById("email").value,
-        senha: document.getElementById("senha").value
+    // Verificar se já há alguém logado
+    if (logado.length > 0) {
+        aviso.innerHTML = "Você já está logado!";
+        return;
     }
 
-    if (indexOfByEmail(userLogado.email) == 1) {
-        document.getElementById("aviso").innerHTML = "Você já está logado em sua conta!";
-    } else if (authentica(userLogado.email, userLogado.senha) == true) {
-        document.getElementById("aviso").innerHTML = "Login efetuado com sucesso";
-        logado.push(userLogado);
-        salvarLogin();
-        window.location = "main.html";
+    let emailLogin = document.getElementById("emailLo").value;
+    let senhaLogin = document.getElementById("senhaLo").value;
+    let pos = indexOfByEmail(emailLogin);
+
+    if (pos === -1) {
+        aviso.innerHTML = "Email não encontrado!";
     } else {
-        document.getElementById("aviso").innerHTML = "Senha ou email inválido";
+        let userLogado = cadastro[pos];
+
+        if (userLogado.senha === senhaLogin) {
+            logado = [userLogado];  // Definir usuário logado
+            salvarLogin();  // Salvar login no localStorage
+            aviso.innerHTML = "Login efetuado com sucesso!";
+            window.location = "main.html";  // Redireciona para a página principal após o login
+        } else {
+            aviso.innerHTML = "Senha inválida!";
+        }
     }
-    document.getElementById("email").value = null;
-    document.getElementById("senha").value = null;
+
+    document.getElementById("emailLo").value = null;
+    document.getElementById("senhaLo").value = null;
 }
 
-/*function logout() {
-    login = false;
-    document.getElementById("aviso").innerHTML = "Logout efetuado com sucesso";
-}*/
+// Função de logout
+function logout() {
+    logado = [];  // Limpa o array logado
+    localStorage.setItem("login", JSON.stringify(logado));  // Salva no localStorage
+    window.location = "login.html";  // Redireciona para a tela de login após o logout
+}
 
-
+// Função para verificar se o usuário existe
 function existe(username, email) {
     for (let user of cadastro) {
-        if (user.username == username || user.email == email) {
+        if (user.username === username || user.email === email) {
             return true;
         }
     }
     return false;
 }
 
+// Função para autenticar o usuário
 function authentica(email, senha) {
     for (let user of cadastro) {
-        if (user.email == email && user.senha == senha) {
+        if (user.email === email && user.senha === senha) {
             return true;
         }
     }
     return false;
 }
 
+// Função para encontrar o índice do usuário pelo email
 function indexOfByEmail(email) {
     for (let i = 0; i < cadastro.length; i++) {
         if (cadastro[i].email === email) {
@@ -110,6 +125,8 @@ function indexOfByEmail(email) {
     return -1;
 }
 
-window.onload = carregarCadastro();
-window.onload = carregarLogin();
-
+// Carregar dados ao carregar a página
+window.onload = function () {
+    carregarCadastro();
+    carregarLogin();
+}

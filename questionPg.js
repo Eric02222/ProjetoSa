@@ -8,13 +8,33 @@ function carregarPe() {
     if (dados) {
         perguntas = JSON.parse(dados);
     }
-}
 
-carregarLogin();
+}
 
 function salvarPe() {
     localStorage.setItem("pergunta", JSON.stringify(perguntas));
 }
+
+function irPgPerguntar() {
+    if(logado.length == 0) {
+        alert("E necessario crira uma conta")
+    }else{
+        window.location = "criarPe.html"
+    }
+}
+
+function irPgLogin() {
+    window.location = "login.html"
+}
+
+function irPgCadastro() {
+    window.location = "signUp.html"
+}
+
+
+
+
+carregarLogin();
 
 function enviarPe() {
     let questao = {
@@ -24,13 +44,11 @@ function enviarPe() {
         descricao: descricao.value
     }
 
-
     if (!titulo || !descricao) {
         document.getElementById("aviso").innerHTML = "Preencha todos os campos"
     } else {
         perguntas.push(questao);
         salvarPe();
-
         document.getElementById("aviso").innerHTML = "Pergunta Enviada com sucesso";
     }
 
@@ -39,10 +57,33 @@ function enviarPe() {
 
 }
 
+function exibirPe() {
+    carregarPe();
+
+for(let i = 0; i < perguntas.length; i++) {
+    if (perguntas) {
+        let titulo = perguntas[i].titulo;
+        let descricao = perguntas[i].descricao;
+        let usuario = perguntas[i].usuario;
+
+        document.getElementById("titulo").innerHTML += titulo;
+        document.getElementById("descricao").innerHTML += descricao;
+        document.getElementById("usuario").innerHTML += usuario;
+    }else{
+        console.log("Nenhuma pergunta encontrada")
+    }
+
+
+}
+   
+
+}
+
 /*function editar() {
     window.location = "criarPe.html";
 }*/
 
-
-
-window.onload = carregarPe();
+window.onload = function(){
+    carregarPe();
+    exibirPe();
+}
