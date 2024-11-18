@@ -1,0 +1,8 @@
+.perguntaspgInc {
+    border-style: groove;
+}
+
+.perguntaspgInc:hover {
+    background-color: #d3d2d2;
+    transition: 0.5s;
+}

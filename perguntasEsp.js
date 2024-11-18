@@ -10,10 +10,6 @@ function salvarPe() {
     localStorage.setItem("pergunta", JSON.stringify(perguntas));
 }
 
-function salvarPe() {
-    localStorage.setItem("pergunta", JSON.stringify(perguntas));
-}
-
 function irPgPerguntar() {
     if (logado.length == 0) {
         alert("E necessario crira uma conta")
@@ -34,13 +30,13 @@ function irPgCadastro() {
 function mostrarPeComp() {
     carregarPe();
 
-    let titulo = localStorage.getItem("titulo");
-    let descricao = localStorage.getItem("descricao");
-    let usuario = localStorage.getItem("usuario");
+    let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
+    
 
-    if(titulo && descricao && usuario){
-        document.getElementById("mostrar-Pergunta").innerHTML = "<p id='usuarioPe-completa'>" + usuario + "</p>" + "<h2 id='titulo-Completo'>" + titulo + "</h2>" + "<p id='descricao-completa'>" + descricao + "</p>"
+    if(peEspecifica.titulo && peEspecifica.texto && peEspecifica.usuario){
+        document.getElementById("mostrar-Pergunta").innerHTML = "<p id='usuarioPe-completa'>" + peEspecifica.usuario + "</p>" + "<h2 id='titulo-Completo'>" + peEspecifica.titulo + "</h2>" + "<p id='descricao-completa'>" + peEspecifica.texto + "</p>"
     }
+
 }
 
 window.onload = function() {

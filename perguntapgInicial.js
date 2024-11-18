@@ -11,6 +11,21 @@ function salvarPe() {
 }
 
 function irPgPerguntaCompleta() {
+    localStorage.setItem("peEspecifica", JSON.stringify([]));
+
+    var adiquiriTitulo = document.getElementById("tituloPe");
+    var adiquiriTexto = document.getElementById("descriçaoPe");
+    var adiquiriUsuario = document.getElementById("usuarioPe");
+
+    var peEspecifica = {
+        titulo: adiquiriTitulo.textContent,
+        texto: adiquiriTexto.textContent,
+        usuario: adiquiriUsuario.textContent
+    }
+
+    localStorage.setItem("peEspecifica", JSON.stringify(peEspecifica));
+    
+
     window.location.href = "mostrarPe.html";
 }
 
@@ -39,7 +54,7 @@ function exibirPe() {
             let descricao = perguntas[i].descricao;
             let usuario = perguntas[i].usuario;
 
-            document.getElementById("perguntas").innerHTML += "<h3 id='tituloPe'>" + titulo + "</h3>" + "<p id='descriçaoPe'>" + descricao + "</p>" + "<p id='usuarioPe'>" + usuario;
+            document.getElementById("perguntas").innerHTML += "<div class='perguntaspgInc' onclick='irPgPerguntaCompleta()'>" + "<h3 id='tituloPe'>" + titulo + "</h3>" + "<p id='descriçaoPe'>" + descricao + "</p>" + "<p id='usuarioPe'>" + usuario;
         } else {
             console.log("Nenhuma pergunta encontrada")
         }
@@ -47,7 +62,7 @@ function exibirPe() {
 
 }
 
-window.onload = function(){
+window.onload = function () {
     carregarPe();
     exibirPe();
 }
