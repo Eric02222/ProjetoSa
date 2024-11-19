@@ -60,10 +60,10 @@ function registro() {
 // Função de login
 function login() {
     // Verificar se já há alguém logado
-    /*if (logado.length == 0) {
+    if (logado.length == 0) {
         aviso.innerHTML = "Você já está logado!";
         return;
-    }*/
+    }
 
     let emailLogin = document.getElementById("emailLo").value;
     let senhaLogin = document.getElementById("senhaLo").value;
@@ -133,8 +133,10 @@ function indexOfByEmail(email) {
 
 
 // Carregar dados ao carregar a página
-window.onload = carregarLogin(); 
-window.onload = carregarCadastro();
-       
-    
+window.onload = function(){
+    carregarCadastro();
+    carregarLogin();
+}
+
+
 
