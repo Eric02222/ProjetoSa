@@ -1,10 +1,10 @@
 let cadastro = [];
-let logado = [];
+let logado;
 
 // Buscar elementos do DOM
-let usuario = document.getElementById("usuario");
-let email = document.getElementById("email");
-let senha = document.getElementById("senha");
+const usuario = document.getElementById("usuario");
+const email = document.getElementById("email");
+const senha = document.getElementById("senha");
 let aviso = document.getElementById("aviso");
 
 // Função para carregar cadastro do localStorage
@@ -22,7 +22,7 @@ function salvarCadastro() {
 
 // Função para carregar login do localStorage
 function carregarLogin() {
-    let dadosUser = localStorage.getItem("login");
+    let dadosUser = localStorage.getItem("logado");
     if (dadosUser) {
         logado = JSON.parse(dadosUser);
     }
@@ -30,7 +30,7 @@ function carregarLogin() {
 
 // Função para salvar login no localStorage
 function salvarLogin() {
-    localStorage.setItem("login", JSON.stringify(logado));
+    localStorage.setItem("logado", JSON.stringify(logado));
 }
 
 // Função para registrar um novo usuário
@@ -60,13 +60,19 @@ function registro() {
 // Função de login
 function login() {
     // Verificar se já há alguém logado
-    if (logado.length > 0) {
+    /*if (logado.length == 0) {
         aviso.innerHTML = "Você já está logado!";
         return;
-    }
+    }*/
 
     let emailLogin = document.getElementById("emailLo").value;
     let senhaLogin = document.getElementById("senhaLo").value;
+
+    let user = {
+        email: emailLogin,
+        senha: senhaLogin
+    }
+
     let pos = indexOfByEmail(emailLogin);
 
     if (pos === -1) {
@@ -75,10 +81,10 @@ function login() {
         let userLogado = cadastro[pos];
 
         if (userLogado.senha === senhaLogin) {
-            logado = [userLogado];  // Definir usuário logado
+            logado = user;  // Definir usuário logado
             salvarLogin();  // Salvar login no localStorage
             aviso.innerHTML = "Login efetuado com sucesso!";
-            window.location = "main.html";  // Redireciona para a página principal após o login
+            window.location.href = "main.html";  // Redireciona para a página principal após o login
         } else {
             aviso.innerHTML = "Senha inválida!";
         }
@@ -90,8 +96,7 @@ function login() {
 
 // Função de logout
 function logout() {
-    logado = [];  // Limpa o array logado
-    localStorage.setItem("login", JSON.stringify(logado));  // Salva no localStorage
+    localStorage.setItem("logado", JSON.stringify(null));  // Salva no localStorage
     window.location = "login.html";  // Redireciona para a tela de login após o logout
 }
 
@@ -125,8 +130,11 @@ function indexOfByEmail(email) {
     return -1;
 }
 
+
+
 // Carregar dados ao carregar a página
-window.onload = function () {
-    carregarCadastro();
-    carregarLogin();
-}
+window.onload = carregarLogin(); 
+window.onload = carregarCadastro();
+       
+    
+
