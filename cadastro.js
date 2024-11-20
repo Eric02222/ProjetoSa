@@ -60,20 +60,23 @@ function registro() {
 // Função de login
 function login() {
     // Verificar se já há alguém logado
-    if (logado.length == 0) {
+    if (logado != null) {
         aviso.innerHTML = "Você já está logado!";
         return;
     }
 
     let emailLogin = document.getElementById("emailLo").value;
     let senhaLogin = document.getElementById("senhaLo").value;
+    let pos = indexOfByEmail(emailLogin);
+    let usernameLogin = cadastro[pos].username
 
     let user = {
+        username: usernameLogin,
         email: emailLogin,
         senha: senhaLogin
     }
 
-    let pos = indexOfByEmail(emailLogin);
+    
 
     if (pos === -1) {
         aviso.innerHTML = "Email não encontrado!";
@@ -133,10 +136,7 @@ function indexOfByEmail(email) {
 
 
 // Carregar dados ao carregar a página
-window.onload = function(){
+window.onload = function () {
     carregarCadastro();
     carregarLogin();
 }
-
-
-
