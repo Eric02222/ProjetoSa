@@ -67,13 +67,16 @@ function login() {
 
     let emailLogin = document.getElementById("emailLo").value;
     let senhaLogin = document.getElementById("senhaLo").value;
+    let pos = indexOfByEmail(emailLogin);
+    let usernameLogin = cadastro[pos].username
 
     let user = {
+        username: usernameLogin,
         email: emailLogin,
         senha: senhaLogin
     }
 
-    let pos = indexOfByEmail(emailLogin);
+    
 
     if (pos === -1) {
         aviso.innerHTML = "Email não encontrado!";
