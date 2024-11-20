@@ -25,7 +25,8 @@ function enviarPe() {
         usuario: logado.username,
         email: logado.email,
         titulo: titulo.value,
-        descricao: descricao.value
+        descricao: descricao.value,
+        respostas: ""
     }
 
 

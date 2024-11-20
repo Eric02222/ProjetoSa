@@ -19,21 +19,25 @@
             <button id="irPgLogin" onclick="irPgLogin()">Login</button>
             <button id="irPgCadastro" onclick="irPgCadastro()">Cadastro</button>
             <button id="deslogar" onclick="logout()">Logout</button>
-            
+
 
         </header>
 
         <div class="mostrar-Pergunta" id="mostrar-Pergunta">
-            
+
         </div>
 
-        <div class="respostas" id="respostas">
+        <div class="respostas" id="envResposta">
             <h3>Resposta</h3>
-
             <input type="text" id="responder"><br>
-            <button id="enviarResposta">Enviar</button>
+            <p id="aviso"></p>
+            <button id="enviarResposta" onclick="responderPe()">Enviar</button>
+        </div>
+
+        <div class="resposta" id="resposta">
 
         </div>
+
     </div>
 
     <div id="myModal" class="modal">

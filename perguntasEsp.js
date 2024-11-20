@@ -10,10 +10,6 @@ function salvarPe() {
     localStorage.setItem("pergunta", JSON.stringify(perguntas));
 }
 
-function limparPe(){
-    localStorage.removeItem('peEspecifica');
-}
-
 function irPgPerguntar() {
     if (logado.length == 0) {
         window.location.href = "criarPe.html"
@@ -34,13 +30,33 @@ function irPgCadastro() {
 function mostrarPeComp() {
     carregarPe();
     let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
-    
-    if(peEspecifica && peEspecifica.titulo && peEspecifica.descricao && peEspecifica.usuario){
+
+    if (peEspecifica && peEspecifica.titulo && peEspecifica.descricao && peEspecifica.usuario) {
         document.getElementById("mostrar-Pergunta").innerHTML = `
             <p id="usuarioPe-completa">${peEspecifica.usuario}</p>
             <h2 id="titulo-Completo">${peEspecifica.titulo}</h2>
             <p id="descricao-completa">${peEspecifica.descricao}</p>`;
     }
+
+}
+
+function responderPe() {
+    carregarPe()
+    let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
+    descricaoCompleta = peEspecifica.descricao;
+    const respostaPe = document.getElementById("responder").value;
+
+    for (let i = 0; i < perguntas.length; i++) {
+        if (perguntas[i].descricao == descricaoCompleta) {
+            localStorage.setItem("pergunta", JSON.stringify(respostaPe));//finalizar
+            salvarPe();
+            break;
+        }
+
+    }
+
+
+
 
 }
 
@@ -51,18 +67,18 @@ let modal = document.getElementById("myModal");
 let span = document.getElementsByClassName("close")[0];
 
 // Quando o usuário clicar no <span> (x), fecha o modal
-span.onclick = function() {
+span.onclick = function () {
     modal.style.display = "none";
 }
 
 // Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
 
-window.onload = function() {
+window.onload = function () {
     carregarPe()
     mostrarPeComp()
 }
