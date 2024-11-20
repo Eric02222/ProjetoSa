@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -10,7 +11,7 @@
 <body onload="mostrarPeComp()">
     <div class="container">
         <header class="cabecario">
-            <a href="main.html" id="nomeSite">nome do site</a>
+            <a href="main.html" id="nomeSite" onclick="limparPe()">nome do site</a>
 
             <input type="text" placeholder="Pesquisa">
 
@@ -32,6 +33,13 @@
             <input type="text" id="responder"><br>
             <button id="enviarResposta">Enviar</button>
 
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>E necessario estar logado para criar uma pergunta</p>
         </div>
     </div>
 

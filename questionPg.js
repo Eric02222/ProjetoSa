@@ -15,22 +15,6 @@ function salvarPe() {
     localStorage.setItem("pergunta", JSON.stringify(perguntas));
 }
 
-function irPgPerguntar() {
-    if (logado.length == 0) {
-        alert("E necessario crira uma conta")
-    } else {
-        window.location.href = "criarPe.html"
-    }
-}
-
-function irPgLogin() {
-    window.location.href = "login.html"
-}
-
-function irPgCadastro() {
-    window.location.href = "signUp.html"
-}
-
 carregarLogin();
 
 function enviarPe() {
@@ -41,19 +25,16 @@ function enviarPe() {
         descricao: descricao.value
     }
 
-    if (!titulo || !descricao) {
-        document.getElementById("aviso").innerHTML = "Preencha todos os campos"
-    } else {
-        perguntas.push(questao);
-        salvarPe();
-        document.getElementById("aviso").innerHTML = "Pergunta Enviada com sucesso";
-    }
+
+    perguntas.push(questao);
+    salvarPe();
+    document.getElementById("aviso").innerHTML = "Pergunta Enviada com sucesso";
+
 
     titulo = document.getElementById("titulo").value = null;
     descricao = document.getElementById("descricao").value = null;
 
 }
-
 
 
 function authentica(titulo, descricao) {
@@ -63,5 +44,7 @@ function authentica(titulo, descricao) {
         }
     }
 }
+
+
 
 window.onload = carregarPe();

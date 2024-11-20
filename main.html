@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 
-<body >
+<body>
     <div class="container">
         <header class="cabecario">
             <a href="main.html" id="nomeSite">nome do site</a>
@@ -19,19 +19,25 @@
             <button id="irPgLogin" onclick="irPgLogin()">Login</button>
             <button id="irPgCadastro" onclick="irPgCadastro()">Cadastro</button>
             <button id="deslogar" onclick="logout()">Logout</button>
-            
+
 
         </header>
 
         <div class="perguntas" id="perguntas">
-            
+
+        </div>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>E necessario estar logado para criar uma pergunta</p>
+            </div>
         </div>
 
 
     </div>
     <script src="cadastro.js"></script>
     <script src="perguntapgInicial.js"></script>
-    
 </body>
 
 </html>
