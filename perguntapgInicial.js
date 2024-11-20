@@ -10,20 +10,11 @@ function salvarPe() {
     localStorage.setItem("pergunta", JSON.stringify(perguntas));
 }
 
-function irPgPerguntaCompleta() {
+function irPgPerguntaCompleta(index) {
     localStorage.setItem("peEspecifica", JSON.stringify([]));
 
-    var adiquiriTitulo = document.getElementById("tituloPe");
-    var adiquiriTexto = document.getElementById("descriçaoPe");
-    var adiquiriUsuario = document.getElementById("usuarioPe");
-
-    var peEspecifica = {
-        titulo: adiquiriTitulo.textContent,
-        texto: adiquiriTexto.textContent,
-        usuario: adiquiriUsuario.textContent
-    }
-
-    localStorage.setItem("peEspecifica", JSON.stringify(peEspecifica));
+    
+    localStorage.setItem("peEspecifica", JSON.stringify(perguntas[index]));
     
 
     window.location.href = "mostrarPe.html";
@@ -55,7 +46,12 @@ function exibirPe() {
             let descricao = perguntas[i].descricao;
             let usuario = perguntas[i].usuario;
 
-            document.getElementById("perguntas").innerHTML += "<div class='perguntaspgInc' onclick='irPgPerguntaCompleta()'>" + "<h3 id='tituloPe'>" + titulo + "</h3>" + "<p id='descriçaoPe'>" + descricao + "</p>" + "<p id='usuarioPe'>" + usuario;
+            document.getElementById("perguntas").innerHTML += `
+            <div class="perguntaspgInc" onclick="irPgPerguntaCompleta(${i})">
+                <h3 id="tituloPe">${titulo}</h3>
+                <p id="descriçaoPe">${descricao}</p>
+                <p id="usuarioPe">${usuario}</p>
+            </div>`;
         } else {
             console.log("Nenhuma pergunta encontrada")
         }

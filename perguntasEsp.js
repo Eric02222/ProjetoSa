@@ -33,11 +33,13 @@ function irPgCadastro() {
 
 function mostrarPeComp() {
     carregarPe();
-
     let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
     
-    if(peEspecifica.titulo && peEspecifica.texto && peEspecifica.usuario){
-        document.getElementById("mostrar-Pergunta").innerHTML = "<p id='usuarioPe-completa'>" + peEspecifica.usuario + "</p>" + "<h2 id='titulo-Completo'>" + peEspecifica.titulo + "</h2>" + "<p id='descricao-completa'>" + peEspecifica.texto + "</p>"
+    if(peEspecifica && peEspecifica.titulo && peEspecifica.descricao && peEspecifica.usuario){
+        document.getElementById("mostrar-Pergunta").innerHTML = `
+            <p id="usuarioPe-completa">${peEspecifica.usuario}</p>
+            <h2 id="titulo-Completo">${peEspecifica.titulo}</h2>
+            <p id="descricao-completa">${peEspecifica.descricao}</p>`;
     }
 
 }

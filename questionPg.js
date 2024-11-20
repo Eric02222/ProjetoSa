@@ -18,9 +18,12 @@ function salvarPe() {
 carregarLogin();
 
 function enviarPe() {
+    let nomeUsuario = localStorage.getItem("logado");
+
+
     let questao = {
-        usuario: logado[0].username,
-        email: logado[0].email,
+        usuario: logado.username,
+        email: logado.email,
         titulo: titulo.value,
         descricao: descricao.value
     }
