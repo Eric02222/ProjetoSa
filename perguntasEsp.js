@@ -11,7 +11,8 @@ function salvarPe() {
 }
 
 function irPgPerguntar() {
-    if (logado.length == 0) {
+    JSON.parse(localStorage.getItem("logado"));
+    if (logado == null) {
         window.location.href = "criarPe.html"
     } else {
         modal.style.display = "block";
@@ -45,14 +46,14 @@ function responderPe() {
     let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
     descricaoCompleta = peEspecifica.descricao;
     const respostaPe = document.getElementById("responder").value;
+    let respostaEvn;
 
     for (let i = 0; i < perguntas.length; i++) {
         if (perguntas[i].descricao == descricaoCompleta) {
-            localStorage.setItem("pergunta", JSON.stringify(respostaPe));//finalizar
+            respostaEvn  = perguntas[i].respostas += respostaPe;
             salvarPe();
             break;
         }
-
     }
 
 

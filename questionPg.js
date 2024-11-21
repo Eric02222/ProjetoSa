@@ -18,8 +18,7 @@ function salvarPe() {
 carregarLogin();
 
 function enviarPe() {
-    let nomeUsuario = localStorage.getItem("logado");
-
+    JSON.parse(localStorage.getItem("logado"));
 
     let questao = {
         usuario: logado.username,
