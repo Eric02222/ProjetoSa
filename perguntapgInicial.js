@@ -79,5 +79,5 @@ window.onclick = function(event) {
 
 window.onload = function () {
     carregarPe();
-    exibirPe();    
+    exibirPe();   
 }

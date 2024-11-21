@@ -19,24 +19,30 @@ carregarLogin();
 
 function enviarPe() {
     JSON.parse(localStorage.getItem("logado"));
+    let id = perguntas.length ? perguntas[perguntas.length - 1].id + 1 : 1;
+
+    while(perguntas.some(perguntas => perguntas.id === id)){
+        id++;
+    }
 
     let questao = {
         usuario: logado.username,
         email: logado.email,
         titulo: titulo.value,
         descricao: descricao.value,
-        respostas: ""
+        id: id
     }
 
+    if(!questao.titulo || !questao.descricao){
+        document.getElementById("aviso").innerHTML = "Preencha todos os campos";
+    }else{
+        perguntas.push(questao);
+        salvarPe();
+        document.getElementById("aviso").innerHTML = "Pergunta Enviada com sucesso";
+    }
 
-    perguntas.push(questao);
-    salvarPe();
-    document.getElementById("aviso").innerHTML = "Pergunta Enviada com sucesso";
-
-
-    titulo = document.getElementById("titulo").value = null;
-    descricao = document.getElementById("descricao").value = null;
-
+    titulo = document.getElementById("titulo").value = "";
+    descricao = document.getElementById("descricao").value = "";
 }
 
 

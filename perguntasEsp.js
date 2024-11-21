@@ -43,22 +43,41 @@ function mostrarPeComp() {
 
 function responderPe() {
     carregarPe()
-    let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
-    descricaoCompleta = peEspecifica.descricao;
-    const respostaPe = document.getElementById("responder").value;
-    let respostaEvn;
+    let pergunta = JSON.parse(localStorage.getItem("peEspecifica"));
+    let respostaPe = document.getElementById("responder").value;
+    const respostas = JSON.parse(localStorage.getItem("respostas")) || []
+    let id = pergunta.id;
 
-    for (let i = 0; i < perguntas.length; i++) {
-        if (perguntas[i].descricao == descricaoCompleta) {
-            respostaEvn  = perguntas[i].respostas += respostaPe;
-            salvarPe();
-            break;
-        }
+    let resposta = {
+        resposta: respostaPe,
+        id: id
+    };
+
+
+    if (!resposta.resposta) {
+        document.getElementById("aviso").innerHTML = "Digite uma resposta antes de enviar!";
+    } else {
+        respostas.push(resposta);
+        localStorage.setItem("respostas", JSON.stringify(respostas));
     }
 
+    respostaPe = document.getElementById("responder").value = null;
+    location.reload();
+}
 
+function mostrarRespostas(){
+    let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
+    respostas = JSON.parse(localStorage.getItem("respostas"))
 
-
+    for (let i = 0; i < respostas.length; i++) {
+        if (peEspecifica.id === respostas[i].id) {
+            let resposta = respostas[i].resposta;
+            document.getElementById("resposta").innerHTML += `
+            <div class="moRespostas">
+                <p id="repostasDaPergunta">${resposta}</p>
+            </div>`;
+        }
+    }
 }
 
 // Obtém o modal
@@ -82,4 +101,5 @@ window.onclick = function (event) {
 window.onload = function () {
     carregarPe()
     mostrarPeComp()
+    mostrarRespostas()
 }
