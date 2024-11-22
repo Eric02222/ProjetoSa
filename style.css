@@ -7,6 +7,19 @@
     transition: 0.5s;
 }
 
+#descriçaoPe {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+#repostasDaPergunta {
+    border-style: groove;
+}
+
 
 /* Estilo para o modal */
 .modal {
@@ -67,11 +80,3 @@
     /* Altera o cursor para pointer */
 }
 
-#descriçaoPe {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-}

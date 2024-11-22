@@ -59,40 +59,42 @@ function registro() {
 
 // Função de login
 function login() {
+
+    if (!email || !senha) {
+        aviso.innerHTML = "Preencha todos os campos";
+    }
+    
     // Verificar se já há alguém logado
     if (logado != null) {
         aviso.innerHTML = "Você já está logado!";
         return;
-    }
-
-    let emailLogin = document.getElementById("emailLo").value;
-    let senhaLogin = document.getElementById("senhaLo").value;
-    let pos = indexOfByEmail(emailLogin);
-    let usernameLogin = cadastro[pos].username
-
-    let user = {
-        username: usernameLogin,
-        email: emailLogin,
-        senha: senhaLogin
-    }
-
-    
-
-    if (pos === -1) {
-        aviso.innerHTML = "Email não encontrado!";
     } else {
-        let userLogado = cadastro[pos];
+        let emailLogin = document.getElementById("emailLo").value;
+        let senhaLogin = document.getElementById("senhaLo").value;
+        let pos = indexOfByEmail(emailLogin);
+        let usernameLogin = cadastro[pos].username
 
-        if (userLogado.senha === senhaLogin) {
-            logado = user;  // Definir usuário logado
-            salvarLogin();  // Salvar login no localStorage
-            aviso.innerHTML = "Login efetuado com sucesso!";
-            window.location.href = "main.html";  // Redireciona para a página principal após o login
+        let user = {
+            username: usernameLogin,
+            email: emailLogin,
+            senha: senhaLogin
+        }
+        if (pos === -1) {
+            aviso.innerHTML = "Email não encontrado!";
         } else {
-            aviso.innerHTML = "Senha inválida!";
+            let userLogado = cadastro[pos];
+            if (userLogado.senha === senhaLogin) {
+                logado = user;  // Definir usuário logado
+                salvarLogin();  // Salvar login no localStorage
+                aviso.innerHTML = "Login efetuado com sucesso!";
+                window.location.href = "main.html";  // Redireciona para a página principal após o login
+            } else {
+                aviso.innerHTML = "Senha inválida!";
+            }
         }
     }
 
+   
     document.getElementById("emailLo").value = null;
     document.getElementById("senhaLo").value = null;
 }

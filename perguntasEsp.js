@@ -3,7 +3,6 @@ function carregarPe() {
     if (dados) {
         perguntas = JSON.parse(dados);
     }
-
 }
 
 function salvarPe() {
@@ -11,11 +10,11 @@ function salvarPe() {
 }
 
 function irPgPerguntar() {
-    JSON.parse(localStorage.getItem("logado"));
+    logado = JSON.parse(localStorage.getItem("logado"));
     if (logado == null) {
-        window.location.href = "criarPe.html"
-    } else {
         modal.style.display = "block";
+    } else {
+        window.location.href = "criarPe.html"
     }
 }
 
@@ -65,36 +64,75 @@ function responderPe() {
     location.reload();
 }
 
-function mostrarRespostas(){
+function mostrarRespostas() {
     let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
     respostas = JSON.parse(localStorage.getItem("respostas"))
 
     for (let i = 0; i < respostas.length; i++) {
         if (peEspecifica.id === respostas[i].id) {
             let resposta = respostas[i].resposta;
-            document.getElementById("resposta").innerHTML += `
-            <div class="moRespostas">
+            document.getElementById("resposta").innerHTML += `   
                 <p id="repostasDaPergunta">${resposta}</p>
-            </div>`;
+            `;
         }
     }
 }
 
+//function editarPe() {}
+
+function excluirPe() {
+    let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
+    let usuario = JSON.parse(localStorage.getItem("logado"));
+
+    if (peEspecifica.usuario === usuario.username && peEspecifica.email === usuario.email) {
+        let descricaoPe = peEspecifica.descricao;
+        let idPe = peEspecifica.id;
+
+        mostrarModalExcluir(descricaoPe, idPe)
+    }else{
+        document.getElementById("negarAcesso").innerHTML = "Voce não tem acesso"
+    }
+
+}
+
+function mostrarModalExcluir(descricao, id) {
+    perguntaParaExcluirId = id;
+    descricaoElemento = descricao;
+    modalExcluir.style.display = "block";
+}
+
+function excluirPergunta() {
+    let perguntas = JSON.parse(localStorage.getItem("pergunta"));
+
+    perguntas = perguntas.filter(perguntas => perguntas.id != perguntaParaExcluirId)
+
+    localStorage.setItem("pergunta", JSON.stringify(perguntas))
+    modal.style.display = "none";
+    window.location.href = "main.html";
+}
+
+function cancelar() {
+    modalEditar.style.display = "none";
+    modalExcluir.style.display = "none";
+}
+
 // Obtém o modal
 let modal = document.getElementById("myModal");
+let modalEditar = document.getElementById("modalEditar");
+let modalExcluir = document.getElementById("modalExcluir");
 
-// Obtém o elemento <span> que fecha o modal
 let span = document.getElementsByClassName("close")[0];
 
-// Quando o usuário clicar no <span> (x), fecha o modal
 span.onclick = function () {
     modal.style.display = "none";
 }
 
 // Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal
 window.onclick = function (event) {
-    if (event.target == modal) {
+    if (event.target == modal || event.target == modalEditar || event.target == modalExcluir) {
         modal.style.display = "none";
+        modalEditar.style.display = "none";
+        modalExcluir.style.display = "none";
     }
 }
 

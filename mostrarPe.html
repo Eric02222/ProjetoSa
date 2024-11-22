@@ -27,6 +27,38 @@
 
         </div>
 
+        <div class="modificar-Pergunta" id="modificar-Pergunta">
+
+            <button id="editarPe" onclick="editarPe()">Editar</button>
+            
+
+            <div id="modalEditar" class="modal">
+                <div class="modal-content">
+                    <label for="titulo">Titulo</label><br>
+                    <input type="text" id="titulo" required><br><br>
+
+                    <label for="descricao">Descrição</label><br>
+                    <input type="text" id="descricao" required><br><br>
+                    <p id="aviso"></p>
+
+                    <button id="EnviarEd" onclick="EnviarEd()">Editar Pergunta</button>
+                    <button id="cancelar" onclick="cancelar()">Cancelar</button>
+                </div>
+            </div>
+
+            <button id="excluirPe" onclick="excluirPe()">Excluir</button>
+            <p id="negarAcesso"></p>
+
+            <div id="modalExcluir" class="modal">
+                <div class="modal-content">
+                    <p>Deseja excluir esta Pergunta</p>
+                    <button id="excluirPe" onclick="excluirPergunta()">Excluir</button>
+                    <button id="cancelar" onclick="cancelar()">Cancelar</button>
+                </div>
+            </div>
+
+        </div>
+
         <div class="respostas" id="envResposta">
             <h3>Resposta</h3>
             <input type="text" id="responder"><br>
