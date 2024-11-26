@@ -83,30 +83,37 @@ function mostrarRespostas() {
 function excluirPe() {
     let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
     let usuario = JSON.parse(localStorage.getItem("logado"));
+    let respostas = JSON.parse(localStorage.getItem("respostas"));
+    
 
     if (peEspecifica.usuario === usuario.username && peEspecifica.email === usuario.email) {
         let descricaoPe = peEspecifica.descricao;
         let idPe = peEspecifica.id;
+        let idRespostas = respostas.id
 
-        mostrarModalExcluir(descricaoPe, idPe)
-    }else{
+        mostrarModalExcluir(descricaoPe, idPe, idRespostas)
+    } else {
         document.getElementById("negarAcesso").innerHTML = "Voce não tem acesso"
     }
 
 }
 
-function mostrarModalExcluir(descricao, id) {
+function mostrarModalExcluir(descricao, id, idRe) {
     perguntaParaExcluirId = id;
+    respostasParaExcluirId = idRe;
     descricaoElemento = descricao;
     modalExcluir.style.display = "block";
 }
 
 function excluirPergunta() {
     let perguntas = JSON.parse(localStorage.getItem("pergunta"));
+    let respostas = JSON.parse(localStorage.getItem("respostas"));
 
     perguntas = perguntas.filter(perguntas => perguntas.id != perguntaParaExcluirId)
+    respostas = respostas.filter(respostas => respostas.id != respostasParaExcluirId)
 
     localStorage.setItem("pergunta", JSON.stringify(perguntas))
+    localStorage.setItem("respostas", JSON.stringify(respostas))
     modal.style.display = "none";
     window.location.href = "main.html";
 }
