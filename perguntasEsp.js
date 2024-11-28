@@ -78,29 +78,72 @@ function mostrarRespostas() {
     }
 }
 
-//function editarPe() {}
-
-function excluirPe() {
-    let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
+function editarPe() {
     let usuario = JSON.parse(localStorage.getItem("logado"));
-    let respostas = JSON.parse(localStorage.getItem("respostas"));
-    
+    let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
 
-    if (peEspecifica.usuario === usuario.username && peEspecifica.email === usuario.email) {
-        let descricaoPe = peEspecifica.descricao;
-        let idPe = peEspecifica.id;
-        let idRespostas = respostas.id
-
-        mostrarModalExcluir(descricaoPe, idPe, idRespostas)
-    } else {
+    if (usuario == null || peEspecifica.usuario != usuario.username && peEspecifica.email != usuario.email) {
         document.getElementById("negarAcesso").innerHTML = "Voce não tem acesso"
+
+    } else if (peEspecifica.usuario === usuario.username && peEspecifica.email === usuario.email) {
+        let tituloPe = document.getElementById("titulo-Completo").textContent;
+        let descricaoPe = document.getElementById("descricao-completa").textContent;
+        let idPe = peEspecifica.id;
+
+        document.getElementById("edTitulo").value = tituloPe;
+        document.getElementById("edDescricao").value = descricaoPe;
+
+        mostrarModalEditar(descricaoPe, descricaoPe, idPe)
+    }
+}
+
+function mostrarModalEditar(titulo, descricao, id) {
+    perguntaParaEditarId = id;
+    tituloElemento = titulo;
+    descricaoElemento = descricao;
+
+    modalEditar.style.display = "block";
+}
+
+function editarPergunta() {
+    let perguntas = JSON.parse(localStorage.getItem("pergunta"));
+    let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
+
+    let pos = perguntas.id.indexOf(peEspecifica.id);
+    let edTitulo = document.getElementById("edTitulo").value;
+    let edDescricao = document.getElementById("edDescricao").value;
+
+
+    if (peEspecifica.id === perguntaParaEditarId) {
+        console.log(pos)
+        perguntas[pos].titulo = edTitulo;
+        perguntas[pos].descricao = edDescricao;
+        
+        localStorage.setItem("pergunta", JSON.stringify(perguntas))
+        location.reload();
     }
 
 }
 
-function mostrarModalExcluir(descricao, id, idRe) {
+function excluirPe() {
+    let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
+    let usuario = JSON.parse(localStorage.getItem("logado"));
+
+    if (usuario == null || peEspecifica.usuario != usuario.username && peEspecifica.email != usuario.email) {
+        document.getElementById("negarAcesso").innerHTML = "Voce não tem acesso"
+
+    } else if (peEspecifica.usuario === usuario.username && peEspecifica.email === usuario.email) {
+        let descricaoPe = peEspecifica.descricao;
+        let idPe = peEspecifica.id;
+
+        mostrarModalExcluir(descricaoPe, idPe)
+    }
+
+}
+
+function mostrarModalExcluir(descricao, id) {
     perguntaParaExcluirId = id;
-    respostasParaExcluirId = idRe;
+
     descricaoElemento = descricao;
     modalExcluir.style.display = "block";
 }
@@ -109,11 +152,16 @@ function excluirPergunta() {
     let perguntas = JSON.parse(localStorage.getItem("pergunta"));
     let respostas = JSON.parse(localStorage.getItem("respostas"));
 
+    for (let resposta of respostas) {
+        if (resposta.id == perguntaParaExcluirId) {
+            respostas = respostas.filter(resposta => resposta.id != perguntaParaExcluirId)
+            localStorage.setItem("respostas", JSON.stringify(respostas))
+        }
+    }
+
     perguntas = perguntas.filter(perguntas => perguntas.id != perguntaParaExcluirId)
-    respostas = respostas.filter(respostas => respostas.id != respostasParaExcluirId)
 
     localStorage.setItem("pergunta", JSON.stringify(perguntas))
-    localStorage.setItem("respostas", JSON.stringify(respostas))
     modal.style.display = "none";
     window.location.href = "main.html";
 }
