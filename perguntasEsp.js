@@ -28,6 +28,7 @@ function irPgCadastro() {
 
 
 function mostrarPeComp() {
+
     carregarPe();
     let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
 
@@ -109,19 +110,22 @@ function editarPergunta() {
     let perguntas = JSON.parse(localStorage.getItem("pergunta"));
     let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
 
-    let pos = perguntas.id.indexOf(peEspecifica.id);
     let edTitulo = document.getElementById("edTitulo").value;
     let edDescricao = document.getElementById("edDescricao").value;
 
-
-    if (peEspecifica.id === perguntaParaEditarId) {
-        console.log(pos)
-        perguntas[pos].titulo = edTitulo;
-        perguntas[pos].descricao = edDescricao;
-        
-        localStorage.setItem("pergunta", JSON.stringify(perguntas))
-        location.reload();
+    for (let pergunta of perguntas) {
+        if (pergunta.id === perguntaParaEditarId) {
+            console.log(pergunta.id)
+            pergunta.titulo = edTitulo;
+            pergunta.descricao = edDescricao;
+            peEspecifica.titulo = edTitulo;
+            peEspecifica.descricao = edDescricao;
+            
+        }
     }
+    localStorage.setItem("pergunta", JSON.stringify(perguntas));
+    localStorage.setItem("peEspecifica", JSON.stringify(peEspecifica));
+    location.reload();
 
 }
 
