@@ -37,9 +37,9 @@ function irPgCadastro() {
     window.location.href = "signUp.html"
 }
 
-
-
 function exibirPe() {
+
+
     for (let i = 0; i < perguntas.length; i++) {
         if (perguntas) {
             let titulo = perguntas[i].titulo;
