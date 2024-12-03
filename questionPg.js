@@ -38,7 +38,8 @@ function enviarPe() {
     }else{
         perguntas.push(questao);
         salvarPe();
-        document.getElementById("aviso").innerHTML = "Pergunta Enviada com sucesso";
+        //document.getElementById("aviso").innerHTML = "Pergunta Enviada com sucesso";
+        window.location.href = "main.html"; 
     }
 
     titulo = document.getElementById("titulo").value = "";

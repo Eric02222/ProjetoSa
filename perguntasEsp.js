@@ -115,7 +115,7 @@ function editarPergunta() {
 
     for (let pergunta of perguntas) {
         if (pergunta.id === perguntaParaEditarId) {
-            console.log(pergunta.id)
+            //console.log(pergunta.id)
             pergunta.titulo = edTitulo;
             pergunta.descricao = edDescricao;
             peEspecifica.titulo = edTitulo;
