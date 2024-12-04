@@ -45,11 +45,20 @@ function responderPe() {
     carregarPe()
     let pergunta = JSON.parse(localStorage.getItem("peEspecifica"));
     let respostaPe = document.getElementById("responder").value;
-    const respostas = JSON.parse(localStorage.getItem("respostas")) || []
+    let logado = JSON.parse(localStorage.getItem("logado"));
+    let usuarioRe;
+    const respostas = JSON.parse(localStorage.getItem("respostas")) || [];
     let id = pergunta.id;
+
+    if(logado === null){
+        usuarioRe = "Usuário anônimo"
+    }else{
+        usuarioRe = logado.username
+    }
 
     let resposta = {
         resposta: respostaPe,
+        usuario: usuarioRe,
         id: id
     };
 
@@ -72,8 +81,12 @@ function mostrarRespostas() {
     for (let i = 0; i < respostas.length; i++) {
         if (peEspecifica.id === respostas[i].id) {
             let resposta = respostas[i].resposta;
+            let usuarioDaRe = respostas[i].usuario;
             document.getElementById("resposta").innerHTML += `   
+                <div id="mostrarRe">
+                <p id="usuarioDaRepostas">${usuarioDaRe}</p>
                 <p id="repostasDaPergunta">${resposta}</p>
+                </div>
             `;
         }
     }

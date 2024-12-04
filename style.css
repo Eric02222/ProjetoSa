@@ -15,10 +15,14 @@ a {
     font-weight: 600;
 }
 
-.cabecario {
-    margin: 1% 0 3% 1%;
+header {
     border-bottom: 1px solid #e2e8f0;
     box-sizing: border-box;
+    margin: 0 0 1% 0;
+}
+
+.cabecario {
+    margin: 1% 0 1% 1%;
 }
 
 button {
@@ -50,13 +54,15 @@ button {
 #loginBu:hover,
 #registroBu:hover,
 #EnviarEd:hover,
-#cancelar:hover {
+#cancelar:hover,
+#enviarResposta:hover {
     background-color: #2ed3e9;
     color: #fff;
 }
 
 #deslogar:hover,
-#excluirPe:hover {
+#excluirPe:hover,
+#excluirPergunta:hover {
     background-color: #e92e2e;
     color: #fff;
 }
@@ -67,6 +73,33 @@ button {
 #deslogar {
     position: relative;
     left: 63%;
+}
+
+#editarPe {
+    position: relative;
+    top: -130px;
+    left: 91%;
+}
+
+#excluirPe {
+    position: relative;
+    top: -90px;
+    left: 84.8%;
+}
+
+#tiResposta {
+    margin: 2% 0 2% 2%;
+}
+
+#enviarResposta {
+    margin: 2% 0 0 2%;
+}
+
+#responder {
+    margin: 2% 0 0 2%;
+    width: 95%;
+    height: 250px;
+    vertical-align: text-top;
 }
 
 .perguntaspgInc {
@@ -113,12 +146,8 @@ button {
     text-overflow: ellipsis;
 }
 
-#repostasDaPergunta {
-    border-style: groove;
-}
-
 .cadastro {
-    display:grid;
+    display: grid;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -129,15 +158,64 @@ button {
     display:grid;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
+    margin: 10% 40% 0 40%;
     text-align: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+}
+
+#loginBu {
+    margin: 0 0 10% 0;
+}
+
+#emailLo {
+    width: 100%;
 }
 
 #mostrar-Pergunta {
-    display:grid;
-    justify-content: center;
-    align-items: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+    margin: 0 10% 0 10%;
 }
+
+.respostas {
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+    margin: 0 10% 0 10%;
+}
+
+#mostrarRe {
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+#repostasDaPergunta {
+    display: grid;
+    margin: 0 3% 3% 3%;
+}
+
+
+#usuarioDaRepostas {
+    display: grid;
+    margin: 2% 3% 2% 3%;
+    font-size: 1.0rem;
+    font-weight: 600;
+}
+
+#usuarioPe-completa {
+    margin: 2% 3% 2% 3%;
+    font-size: 1.0rem;
+    font-weight: 600;
+}
+
+#titulo-Completo{
+    margin: 2% 3% 2% 3%;
+}
+
+#descricao-completa {
+    margin: 2% 3% 2% 3%;
+}
+
 
 
 /* Estilo para o modal */
