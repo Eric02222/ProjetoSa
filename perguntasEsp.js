@@ -180,7 +180,7 @@ function excluirPergunta() {
 
     localStorage.setItem("pergunta", JSON.stringify(perguntas))
     modal.style.display = "none";
-    window.location.href = "main.html";
+    window.location.href = "index.html";
 }
 
 function cancelar() {

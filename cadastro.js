@@ -87,7 +87,7 @@ function login() {
                 logado = user;  // Definir usuário logado
                 salvarLogin();  // Salvar login no localStorage
                 aviso.innerHTML = "Login efetuado com sucesso!";
-                window.location.href = "main.html";  // Redireciona para a página principal após o login
+                window.location.href = "index.html";  // Redireciona para a página principal após o login
             } else {
                 aviso.innerHTML = "Senha inválida!";
             }
