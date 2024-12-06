@@ -5,20 +5,43 @@ body {
     padding: 0;
 }
 
+input {
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+    outline: none;
+}
+
+input:focus {
+    border: 1px solid #2ed3e9;
+    transition: 0.5s;
+}
+
 a {
     text-decoration: none;
     color: #000000;
 }
 
-#nomeSite {
-    font-size: 1.0rem;
-    font-weight: 600;
+textarea {
+    border: 1px solid #e2e8f0;
+    border-radius: 1.0rem;
+    padding: 10px;
+    outline: none;
+}
+
+textarea:focus {
+    border: 1px solid #2ed3e9;
+    transition: 0.5s;
 }
 
 header {
     border-bottom: 1px solid #e2e8f0;
     box-sizing: border-box;
     margin: 0 0 1% 0;
+}
+
+#nomeSite {
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .cabecario {
@@ -54,52 +77,94 @@ button {
 #loginBu:hover,
 #registroBu:hover,
 #EnviarEd:hover,
-#cancelar:hover,
-#enviarResposta:hover {
+#enviarResposta:hover,
+#enviarPergunta:hover,
+#excluirPergunta:hover {
     background-color: #2ed3e9;
     color: #fff;
 }
 
 #deslogar:hover,
 #excluirPe:hover,
-#excluirPergunta:hover {
+#cancelarEd:hover,
+#cancelarEx:hover {
     background-color: #e92e2e;
     color: #fff;
 }
 
-#irPgPergunta,
-#irPgCadastro,
-#irPgLogin,
-#deslogar {
-    position: relative;
-    left: 63%;
+#irPgPergunta {
+    margin: 0 0 0 61%;
 }
 
+
+
 #editarPe {
-    position: relative;
-    top: -130px;
-    left: 91%;
+   margin: 1% 0 1% 11%;
 }
 
 #excluirPe {
-    position: relative;
-    top: -90px;
-    left: 84.8%;
+    
 }
 
 #tiResposta {
-    margin: 2% 0 2% 2%;
+    margin: 2% 0 0 2%;
 }
 
 #enviarResposta {
     margin: 2% 0 0 2%;
 }
 
+#enviarPergunta {
+    margin: 0 0 2% 44%;
+}
+
 #responder {
     margin: 2% 0 0 2%;
     width: 95%;
     height: 250px;
-    vertical-align: text-top;
+}
+
+#negarAcesso {
+    margin: -1% 0 1% 12%;
+    color: #e92e2e;
+}
+
+.localCriarPerg {
+    align-items: center;
+    margin: 2% 2% 5% 2%;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
+    padding: 2% 0 0 0;
+}
+
+#espacoTitulo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 0 0 3%;
+}
+
+#espacoDescricao {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 0 0 3%;
+}
+
+#titulo {
+    margin: 2% 2% 2% 2%;
+    width: 95%;
+    height: 250px;
+}
+
+#descricao {
+    margin: 2% 2% 2% 2%;
+    width: 95%;
+    height: 250px;
+}
+
+#avisoCriarPe {
+    margin: 0 0 2% 3%;
+    color: #e92e2e;
 }
 
 .perguntaspgInc {
@@ -122,7 +187,7 @@ button {
 }
 
 .perguntaspgInc:hover {
-    background-color: #d3d2d2;
+    border: 1px solid #2ed3e9;
     transition: 0.5s;
 }
 
@@ -147,22 +212,51 @@ button {
 }
 
 .cadastro {
-    display: grid;
-    justify-content: center;
+    justify-items: center;
     align-items: center;
     text-align: center;
-    margin-top: 10%;
+    margin: 10% 40% 0 40%;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+}
+
+#usuario,
+#email,
+#senha {
+    margin: 0 0 5% 0;
+    width: 100%;
+    height: 25px;
+}
+
+
+#registroBu {
+    margin: 0 0 10% 0;
+}
+
+#irLogar {
+    width: 40px;
+}
+
+#aviso {
+    color: #e92e2e;
 }
 
 .login {
-    display:grid;
-    justify-content: center;
+    justify-items: center;
     align-items: center;
     margin: 10% 40% 0 40%;
     text-align: center;
     border: 1px solid #e2e8f0;
     border-radius: 1.5rem;
 }
+
+#emailLo,
+#senhaLo {
+    margin: 0 0 5% 0;
+    width: 100%;
+    height: 25px;
+}
+
 
 #loginBu {
     margin: 0 0 10% 0;
@@ -178,6 +272,8 @@ button {
     margin: 0 10% 0 10%;
 }
 
+
+
 .respostas {
     border: 1px solid #e2e8f0;
     border-radius: 1.5rem;
@@ -190,13 +286,13 @@ button {
 }
 
 #repostasDaPergunta {
-    display: grid;
+    justify-items: center;
     margin: 0 3% 3% 3%;
 }
 
 
 #usuarioDaRepostas {
-    display: grid;
+    justify-items: center;
     margin: 2% 3% 2% 3%;
     font-size: 1.0rem;
     font-weight: 600;
@@ -208,7 +304,7 @@ button {
     font-weight: 600;
 }
 
-#titulo-Completo{
+#titulo-Completo {
     margin: 2% 3% 2% 3%;
 }
 
@@ -217,6 +313,66 @@ button {
 }
 
 
+.modal-content-excluir {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+    width: 20%;
+    height: 20%;
+    justify-items: center;
+}
+
+#avisoExluirPe {
+    margin: 8% 0 15% 0;
+}
+
+#cancelarEx {
+    margin: 0 0 0 50px;
+}
+
+.modal-content-editar {
+    background-color: #fefefe;
+    margin: 3% auto;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+    width: 79%;
+    height: 120%;
+}
+
+#tituloPerguntaEd {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 0 0 3%;
+}
+
+#descricaoPerguntaEd {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 0 0 3%;
+}
+
+#edTitulo {
+    margin: 2% 2% 2% 2%;
+    width: 95%;
+    height: 250px;
+}
+
+#edDescricao {
+    margin: 2% 2% 2% 2%;
+    width: 95%;
+    height: 250px;
+}
+
+#EnviarEd {
+    margin: 0 0 0 3%;
+}
+
+#cancelarEd {
+    margin: 0 0 0 70%;
+}
 
 /* Estilo para o modal */
 .modal {
@@ -250,8 +406,10 @@ button {
     /* Espaçamento interno */
     border: 1px solid #888;
     /* Borda do modal */
-    width: 80%;
+    width: 28%;
     /* Largura do conteúdo do modal */
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
 }
 
 /* Estilo para o botão de fechar */

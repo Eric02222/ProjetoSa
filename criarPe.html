@@ -17,15 +17,15 @@
             </div>
         </header>
 
-        <div>
-            <label for="titulo">Titulo</label><br>
-            <input type="text" id="titulo" required><br><br>
+        <div class="localCriarPerg">
+            <label for="titulo" id="espacoTitulo">Titulo</label><br>
+            <textarea type="text" id="titulo"></textarea><br>
 
-            <label for="descricao">Descrição</label><br>
-            <input type="text" id="descricao" required><br><br>
-            <p id="aviso"></p>
+            <label for="descricao" id="espacoDescricao">Descrição</label><br>
+            <textarea type="text" id="descricao"></textarea><br>
+            <p id="avisoCriarPe"></p>
 
-            <button onclick="enviarPe()">Enviar Pergunta</button>
+            <button onclick="enviarPe()" id="enviarPergunta">Enviar Pergunta</button>
         </div>
     </div>
     <script src="cadastro.js"></script>

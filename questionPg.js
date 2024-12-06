@@ -34,7 +34,7 @@ function enviarPe() {
     }
 
     if(!questao.titulo || !questao.descricao){
-        document.getElementById("aviso").innerHTML = "Preencha todos os campos";
+        document.getElementById("avisoCriarPe").innerHTML = "Preencha todos os campos";
     }else{
         perguntas.push(questao);
         salvarPe();

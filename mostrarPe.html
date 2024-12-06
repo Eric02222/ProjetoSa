@@ -11,7 +11,7 @@
 <body onload="mostrarPeComp()">
     <div class="container">
         <header>
-            <div  class="cabecario">
+            <div class="cabecario">
                 <a href="index.html" id="nomeSite" onclick="limparPe()">nome do site</a>
 
                 <button id="irPgPergunta" onclick="irPgPerguntar()">Perguntar</button>
@@ -26,37 +26,11 @@
 
         </div>
 
-        <div class="modificar-Pergunta" id="modificar-Pergunta">
 
-            <button id="editarPe" onclick="editarPe()">Editar</button>
-            <button id="excluirPe" onclick="excluirPe()">Excluir</button>
-
-            <div id="modalEditar" class="modal">
-                <div class="modal-content">
-                    <label for="edTitulo">Titulo</label><br>
-                    <input type="text" id="edTitulo" required><br><br>
-
-                    <label for="edDescricao">Descrição</label><br>
-                    <input type="text" id="edDescricao" required><br><br>
-                    <p id="aviso"></p>
-
-                    <button id="EnviarEd" onclick="editarPergunta()">Editar Pergunta</button>
-                    <button id="cancelar" onclick="cancelar()">Cancelar</button>
-                </div>
-            </div>
+        <button id="editarPe" onclick="editarPe()">Editar</button>
+        <button id="excluirPe" onclick="excluirPe()">Excluir</button>
 
 
-            <p id="negarAcesso"></p>
-
-            <div id="modalExcluir" class="modal">
-                <div class="modal-content">
-                    <p>Deseja excluir esta Pergunta</p>
-                    <button id="excluirPe" onclick="excluirPergunta()">Excluir</button>
-                    <button id="cancelar" onclick="cancelar()">Cancelar</button>
-                </div>
-            </div>
-
-        </div>
 
         <div class="respostas" id="envResposta">
             <h3 id="tiResposta">Resposta</h3>
@@ -69,6 +43,34 @@
 
             </div>
         </div>
+
+        <div id="modalEditar" class="modal">
+            <div class="modal-content-editar">
+                <label for="edTitulo" id="tituloPerguntaEd">Titulo</label><br>
+                <textarea type="text" id="edTitulo"></textarea><br>
+
+                <label for="edDescricao" id="descricaoPerguntaEd">Descrição</label><br>
+                <textarea type="text" id="edDescricao"></textarea><br>
+                <p id="aviso"></p>
+
+                <button id="EnviarEd" onclick="editarPergunta()">Editar Pergunta</button>
+                <button id="cancelarEd" onclick="cancelar()">Cancelar</button>
+            </div>
+        </div>
+
+
+        <p id="negarAcesso"></p>
+
+        <div id="modalExcluir" class="modal">
+            <div class="modal-content-excluir">
+                <p id="avisoExluirPe">Deseja excluir esta Pergunta?</p>
+                <button id="excluirPergunta" onclick="excluirPergunta()">Sim</button>
+                <button id="cancelarEx" onclick="cancelar()">Não</button>
+            </div>
+        </div>
+
+
+
 
     </div>
 
