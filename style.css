@@ -1,3 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
@@ -42,6 +52,7 @@ header {
 #nomeSite {
     font-size: 1.2rem;
     font-weight: 600;
+    margin: 0 0 0 1%;
 }
 
 .avisoPgVazia {
@@ -101,13 +112,11 @@ button {
 }
 
 #irPgPergunta {
-    margin: 0 0 0 61%;
+    margin: 0 0 0 74%;
 }
 
-
-
 #editarPe {
-   margin: 1% 0 1% 11%;
+    margin: 1% 0 0 11%;
 }
 
 #tiResposta {
@@ -172,7 +181,7 @@ button {
 }
 
 .perguntaspgInc {
-    margin: 0.5% 3%;
+    margin: 0.5% 10%;
     border: 2px solid #e2e8f0;
     border-radius: 1.5rem;
     box-sizing: border-box;
@@ -267,14 +276,12 @@ button {
     margin: 0 0 10% 0;
 }
 
-
 #mostrar-Pergunta {
     border: 2px solid #e2e8f0;
     border-radius: 1.5rem;
-    margin: 0 10% 0 10%;
+    margin: 0 0 0 10%;
+    width: 79.5%;
 }
-
-
 
 .respostas {
     border: 2px solid #e2e8f0;
@@ -319,30 +326,29 @@ button {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #e2e8f0;
+    border: 2px solid #cbe4e4;
     border-radius: 1.5rem;
     width: 20%;
     height: 20%;
     justify-items: center;
 }
 
-#avisoExluirPe {
-    margin: 10% 0 20% 20%;
-}
-
 #excluirPergunta {
-    margin: 0 35% 0 15%;
+    margin: 0 42% 0 10%;
 }
 
+#avisoExluirPe {
+    margin: 10% 0 13% 18%;
+}
 
 .modal-content-editar {
     background-color: #fefefe;
     margin: 3% auto;
     padding: 20px;
-    border: 1px solid #e2e8f0;
+    border: 2px solid #cbe4e4;
     border-radius: 1.5rem;
     width: 79%;
-    height: 120%;
+    height: 83%;
 }
 
 #tituloPerguntaEd {
