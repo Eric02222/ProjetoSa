@@ -125,7 +125,7 @@ button {
 }
 
 #negarAcesso {
-    margin: -1% 0 1% 12%;
+    margin: 0 0 1% 12%;
     color: #e92e2e;
 }
 
@@ -237,8 +237,9 @@ button {
     width: 40px;
 }
 
-#aviso {
+#avisoRe {
     color: #e92e2e;
+    margin: 1% 0 1% 2%;
 }
 
 .login {

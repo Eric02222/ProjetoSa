@@ -64,14 +64,15 @@ function responderPe() {
 
 
     if (!resposta.resposta) {
-        document.getElementById("aviso").innerHTML = "Digite uma resposta antes de enviar!";
+        document.getElementById("avisoRe").innerHTML = "Digite uma resposta antes de enviar!";
     } else {
         respostas.push(resposta);
         localStorage.setItem("respostas", JSON.stringify(respostas));
+        location.reload();
     }
 
     respostaPe = document.getElementById("responder").value = null;
-    location.reload();
+    
 }
 
 function mostrarRespostas() {

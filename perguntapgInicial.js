@@ -1,3 +1,4 @@
+let perguntas = [];
 function carregarPe() {
     let dados = localStorage.getItem("pergunta");
     if (dados) {
@@ -13,9 +14,9 @@ function salvarPe() {
 function irPgPerguntaCompleta(index) {
     localStorage.setItem("peEspecifica", JSON.stringify([]));
 
-    
+
     localStorage.setItem("peEspecifica", JSON.stringify(perguntas[index]));
-    
+
 
     window.location.href = "mostrarPe.html";
 }
@@ -40,8 +41,8 @@ function irPgCadastro() {
 function exibirPe() {
 
 
-    for (let i = 0; i < perguntas.length; i++) {
-        if (perguntas) {
+    if (perguntas != null && perguntas.length > 0) {
+        for (let i = 0; i < perguntas.length; i++) {
             let titulo = perguntas[i].titulo;
             let descricao = perguntas[i].descricao;
             let usuario = perguntas[i].usuario;
@@ -52,9 +53,14 @@ function exibirPe() {
                 <p id="descriçaoPe">${descricao}</p>
                 <p id="usuarioPe">${usuario}</p>
             </div>`;
-        } else {
-            console.log("Nenhuma pergunta encontrada")
         }
+    } else {
+        console.log("Nenhuma pergunta encontrada")
+        document.getElementById("perguntas").innerHTML += `
+            <div class="perguntaspgInc" onclick="irPgPerguntaCompleta()">
+                <h3 id="tituloPe">Nenhuma pergunta</h3>
+                <p id="descriçaoPe">No momento não foi feito nenhuma pergunta</p>
+            </div>`;
     }
 
 }
@@ -66,12 +72,12 @@ let modal = document.getElementById("myModal");
 let span = document.getElementsByClassName("close")[0];
 
 // Quando o usuário clicar no <span> (x), fecha o modal
-span.onclick = function() {
+span.onclick = function () {
     modal.style.display = "none";
 }
 
 // Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
@@ -79,5 +85,5 @@ window.onclick = function(event) {
 
 window.onload = function () {
     carregarPe();
-    exibirPe();   
+    exibirPe();
 }
