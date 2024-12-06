@@ -57,9 +57,8 @@ function exibirPe() {
     } else {
         console.log("Nenhuma pergunta encontrada")
         document.getElementById("perguntas").innerHTML += `
-            <div class="perguntaspgInc" onclick="irPgPerguntaCompleta()">
-                <h3 id="tituloPe">Nenhuma pergunta</h3>
-                <p id="descriçaoPe">No momento não foi feito nenhuma pergunta</p>
+            <div class="avisoPgVazia">
+                <h3 id="tituloPe">No momento não foi nenhuma pergunta foi feita</h3>
             </div>`;
     }
 
