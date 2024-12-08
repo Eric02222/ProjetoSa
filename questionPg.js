@@ -36,14 +36,12 @@ function enviarPe() {
     if(!questao.titulo || !questao.descricao){
         document.getElementById("avisoCriarPe").innerHTML = "Preencha todos os campos";
     }else{
-        perguntas.push(questao);
+        perguntas.unshift(questao);
         salvarPe();
         //document.getElementById("aviso").innerHTML = "Pergunta Enviada com sucesso";
         window.location.href = "index.html"; 
     }
 
-    titulo = document.getElementById("titulo").value = "";
-    descricao = document.getElementById("descricao").value = "";
 }
 
 

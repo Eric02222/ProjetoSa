@@ -66,7 +66,7 @@ function responderPe() {
     if (!resposta.resposta) {
         document.getElementById("avisoRe").innerHTML = "Digite uma resposta antes de enviar!";
     } else {
-        respostas.push(resposta);
+        respostas.unshift(resposta);
         localStorage.setItem("respostas", JSON.stringify(respostas));
         location.reload();
     }
@@ -90,6 +90,27 @@ function mostrarRespostas() {
                 </div>
             `;
         }
+    }
+}
+
+function exibirElementos() {
+    let usuario = JSON.parse(localStorage.getItem("logado"));
+    let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
+    if(usuario == null || peEspecifica.usuario != usuario.username && peEspecifica.email != usuario.email) {
+        document.getElementById("botoesEd").style.display = "none";
+    }else {
+        document.getElementById("botoesEd").style.display = "block";
+    
+    }
+
+    if(usuario == null) {
+        document.getElementById("irPgLogin").style.display = "show";
+        document.getElementById("irPgCadastro").style.display = "show";
+        document.getElementById("irPgPergunta").style.margin = "0 0 0 69%";
+    }else {
+        document.getElementById("irPgLogin").style.display = "none";
+        document.getElementById("irPgCadastro").style.display = "none";
+        document.getElementById("irPgPergunta").style.margin = "0 0 0 81%";
     }
 }
 
@@ -149,7 +170,6 @@ function excluirPe() {
 
     if (usuario == null || peEspecifica.usuario != usuario.username && peEspecifica.email != usuario.email) {
         document.getElementById("negarAcesso").innerHTML = "Voce não tem acesso"
-
     } else if (peEspecifica.usuario === usuario.username && peEspecifica.email === usuario.email) {
         let descricaoPe = peEspecifica.descricao;
         let idPe = peEspecifica.id;
@@ -211,6 +231,7 @@ window.onclick = function (event) {
 
 window.onload = function () {
     carregarPe()
+    exibirElementos()
     mostrarPeComp()
     mostrarRespostas()
 }

@@ -48,7 +48,6 @@ function registro() {
     } else {
         cadastro.push(user);
         salvarCadastro();
-        aviso.innerHTML = "Usuário cadastrado com sucesso!";
         window.location = "login.html";  // Redireciona para a tela de login após o cadastro
     }
 
@@ -86,7 +85,6 @@ function login() {
             if (userLogado.senha === senhaLogin) {
                 logado = user;  // Definir usuário logado
                 salvarLogin();  // Salvar login no localStorage
-                aviso.innerHTML = "Login efetuado com sucesso!";
                 window.location.href = "index.html";  // Redireciona para a página principal após o login
             } else {
                 aviso.innerHTML = "Senha inválida!";

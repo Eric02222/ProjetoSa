@@ -55,14 +55,29 @@ function exibirPe() {
             </div>`;
         }
     } else {
+        
         console.log("Nenhuma pergunta encontrada")
         document.getElementById("perguntas").innerHTML += `
             <div class="avisoPgVazia">
-                <h3 id="tituloPe">No momento não foi nenhuma pergunta foi feita</h3>
+                <h3 id="tituloPe">Nenhuma Pergunta Criada</h3>
             </div>`;
     }
 
 }
+
+function exibirElementos() {
+    let usuario = JSON.parse(localStorage.getItem("logado"));
+    if(usuario == null) {
+        document.getElementById("irPgLogin").style.display = "show";
+        document.getElementById("irPgCadastro").style.display = "show";
+        document.getElementById("irPgPergunta").style.margin = "0 0 0 69%";
+    }else {
+        document.getElementById("irPgLogin").style.display = "none";
+        document.getElementById("irPgCadastro").style.display = "none";
+        document.getElementById("irPgPergunta").style.margin = "0 0 0 81%";
+    }
+}
+
 
 // Obtém o modal
 let modal = document.getElementById("myModal");
@@ -84,5 +99,6 @@ window.onclick = function (event) {
 
 window.onload = function () {
     carregarPe();
+    exibirElementos()
     exibirPe();
 }
