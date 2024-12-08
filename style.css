@@ -50,13 +50,17 @@ header {
     box-sizing: border-box;
     padding: 1% 0 0.1% 0;
     margin: 0 0 0 0;
-    background-color: #cbf9ff;
+    background-image: linear-gradient(#7cffe3, #ffffff); 
 }
 
 #nomeSite {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 600;
+    color: #ffffff;
+    background-color: #000000;
+    padding: 5px 5px 5px 5px;
     margin: 0 0 0 1%;
+    border-radius: 50% 30% / 0% 60%;
 }
 
 .avisoPgVazia {

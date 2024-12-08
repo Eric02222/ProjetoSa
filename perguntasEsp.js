@@ -106,11 +106,11 @@ function exibirElementos() {
     if(usuario == null) {
         document.getElementById("irPgLogin").style.display = "show";
         document.getElementById("irPgCadastro").style.display = "show";
-        document.getElementById("irPgPergunta").style.margin = "0 0 0 69%";
+        document.getElementById("irPgPergunta").style.margin = "0 0 0 68%";
     }else {
         document.getElementById("irPgLogin").style.display = "none";
         document.getElementById("irPgCadastro").style.display = "none";
-        document.getElementById("irPgPergunta").style.margin = "0 0 0 81%";
+        document.getElementById("irPgPergunta").style.margin = "0 0 0 80%";
     }
 }
 
