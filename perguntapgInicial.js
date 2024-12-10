@@ -39,8 +39,6 @@ function irPgCadastro() {
 }
 
 function exibirPe() {
-
-
     if (perguntas != null && perguntas.length > 0) {
         for (let i = 0; i < perguntas.length; i++) {
             let titulo = perguntas[i].titulo;
@@ -55,7 +53,7 @@ function exibirPe() {
             </div>`;
         }
     } else {
-        
+
         console.log("Nenhuma pergunta encontrada")
         document.getElementById("perguntas").innerHTML += `
             <div class="avisoPgVazia">
@@ -67,14 +65,14 @@ function exibirPe() {
 
 function exibirElementos() {
     let usuario = JSON.parse(localStorage.getItem("logado"));
-    if(usuario == null) {
+    if (usuario == null) {
         document.getElementById("irPgLogin").style.display = "show";
         document.getElementById("irPgCadastro").style.display = "show";
-        document.getElementById("irPgPergunta").style.margin = "0 0 0 68%";
-    }else {
+        document.getElementById("irPgPergunta").style.margin = "0 0 0 62.5vw";
+    } else {
         document.getElementById("irPgLogin").style.display = "none";
         document.getElementById("irPgCadastro").style.display = "none";
-        document.getElementById("irPgPergunta").style.margin = "0 0 0 80%";
+        document.getElementById("irPgPergunta").style.margin = "0 0 0 76.5vw";
     }
 }
 
@@ -99,6 +97,6 @@ window.onclick = function (event) {
 
 window.onload = function () {
     carregarPe();
-    exibirElementos()
+    exibirElementos();
     exibirPe();
 }

@@ -33,6 +33,7 @@ function salvarLogin() {
     localStorage.setItem("logado", JSON.stringify(logado));
 }
 
+
 // Função para registrar um novo usuário
 function registro() {
     let user = {

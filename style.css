@@ -63,18 +63,6 @@ header {
     border-radius: 50% 30% / 0% 60%;
 }
 
-.avisoPgVazia {
-    color: #b9b9b9;
-    font-size: 1.6rem;
-    font-weight: 600;
-    text-align: center;
-    margin: 20% 0 0 0;
-}
-
-.cabecario {
-    margin: 0 0 1% 1%;
-}
-
 button {
     background-color: #fff;
     border: 0 solid #b9b9b9;
@@ -97,22 +85,25 @@ button {
     touch-action: manipulation;
 }
 
-#tituloLogin {
-    margin: 5% 0 5% 0;
-    font-size: 2.0rem;
+
+.avisoPgVazia {
+    color: #b9b9b9;
+    font-size: 1.6rem;
     font-weight: 600;
+    text-align: center;
+    margin: 20% 0 0 0;
 }
 
-#aviso {
-    margin: 5% 0 5% 0;
-    color: #e92e2e;
+.cabecario {
+    margin: 0 0 1% 1%;
 }
 
-#tituloCad {
-    margin: 5% 0 5% 0;
-    font-size: 2.0rem;
-    font-weight: 600;
+#irPgPergunta {
+    background-color: #2ed3e9;
+    border: 1px solid transparent;
+    color: #fff;
 }
+
 
 #irPgCadastro:hover,
 #irPgLogin:hover,
@@ -150,21 +141,105 @@ button {
     color: #000000;
 }
 
-#irPgPergunta {
-    margin: 0 0 0 69%;
+
+
+.cadastro {
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    margin: 10% 40% 0 40%;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+}
+
+
+#tituloCad {
+    margin: 5% 0 5% 0;
+    font-size: 2.0rem;
+    font-weight: 600;
+}
+
+#usuario,
+#email,
+#senha {
+    margin: 0 0 5% 0;
+    width: 90%;
+    height: 25px;
+    padding: 2%;
+}
+
+
+#registroBu {
+    margin: 0 0 10% 0;
+}
+
+#irLogar {
+    width: 40px;
+}
+
+#avisoRe {
+    color: #e92e2e;
+    margin: 1% 0 1% 2%;
+}
+
+.login {
+    justify-items: center;
+    align-items: center;
+    margin: 24vh 40% 0 40vw;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+}
+
+#tituloLogin {
+    margin: 2vh 0 2vh 0;
+    font-size: 2.0rem;
+    font-weight: 600;
+}
+
+#aviso {
+    margin: 5% 0 5% 0;
+    color: #e92e2e;
+}
+
+#emailLo,
+#senhaLo{
+    margin: 0 0 5% 0;
+    width: 90%;
+    height: 25px;
+    padding: 2%;
+}
+
+#loginBu {
+    margin: 0 0 2vh 0;
+}
+
+#enviarPergunta {
+    margin: 0 0 2% 44%;
     background-color: #2ed3e9;
+    border: 1px solid transparent;
+    padding: 0.5%;
     color: #fff;
 }
 
 #editarPe {
-    margin: 1% 0 0 11%;
+    margin: 1vw 0 0 11vw;
     background-color: #2ed3e9;
+    padding: 0.5vw ;
+    border: 1px solid transparent;
     color: #fff;
 }
 
 #excluirPe {
     background-color: #e92e2e;
+    border: 1px solid transparent;
+    padding: 0.5%;
     color: #fff;
+}
+
+#negarAcesso {
+    margin: 0 0 1% 12%;
+    color: #e92e2e;
 }
 
 #tiResposta {
@@ -174,12 +249,8 @@ button {
 #enviarResposta {
     margin: 2% 0 0 2%;
     background-color: #2ed3e9;
-    color: #fff;
-}
-
-#enviarPergunta {
-    margin: 0 0 2% 44%;
-    background-color: #2ed3e9;
+    border: 1px solid transparent;
+    padding: 0.5%;
     color: #fff;
 }
 
@@ -187,11 +258,6 @@ button {
     margin: 2% 0 0 2%;
     width: 95%;
     height: 250px;
-}
-
-#negarAcesso {
-    margin: 0 0 1% 12%;
-    color: #e92e2e;
 }
 
 .localCriarPerg {
@@ -278,59 +344,6 @@ button {
     text-overflow: ellipsis;
 }
 
-.cadastro {
-    justify-items: center;
-    align-items: center;
-    text-align: center;
-    margin: 10% 40% 0 40%;
-    border: 1px solid #e2e8f0;
-    border-radius: 1.5rem;
-}
-
-#usuario,
-#email,
-#senha {
-    margin: 0 0 5% 0;
-    width: 90%;
-    height: 25px;
-    padding: 2%;
-}
-
-
-#registroBu {
-    margin: 0 0 10% 0;
-}
-
-#irLogar {
-    width: 40px;
-}
-
-#avisoRe {
-    color: #e92e2e;
-    margin: 1% 0 1% 2%;
-}
-
-.login {
-    justify-items: center;
-    align-items: center;
-    margin: 14% 40% 0 40%;
-    text-align: center;
-    border: 1px solid #e2e8f0;
-    border-radius: 1.5rem;
-}
-
-#emailLo,
-#senhaLo{
-    margin: 0 0 5% 0;
-    width: 90%;
-    height: 25px;
-    padding: 2%;
-}
-
-#loginBu {
-    margin: 0 0 5% 0;
-}
-
 #mostrar-Pergunta {
     border: 2px solid #e2e8f0;
     border-radius: 1.5rem;
@@ -382,24 +395,29 @@ button {
     padding: 20px;
     border: 2px solid #cbe4e4;
     border-radius: 1.5rem;
-    width: 20%;
-    height: 20%;
+    width: 25%;
+    height: 23%;
     justify-items: center;
 }
 
 #excluirPergunta {
-    margin: 0 42% 0 5%;
     background-color: #2ed3e9;
+    border: 1px solid transparent;
     color: #fff;
+    
 }
 
 #cancelarEx {
     background-color: #e92e2e;
+    border: 1px solid transparent;
     color: #fff;
+    margin: 0 0 0 90px;
 }
 
 #avisoExluirPe {
-    margin: 10% 0 13% 11%;
+    text-align: center;
+    padding: 10%;
+    margin: 0 0 1px 0;
 }
 
 .modal-content-editar {
@@ -408,8 +426,8 @@ button {
     padding: 20px;
     border: 2px solid #cbe4e4;
     border-radius: 1.5rem;
-    width: 79%;
-    height: 110%;
+    width: 79vw;
+    height: 120vh;
 }
 
 #tituloPerguntaEd {
@@ -437,14 +455,15 @@ button {
 }
 
 #EnviarEd {
-    margin: 0 0 0 3%;
+    margin: 0 52vw 0 2vw;
     background-color: #2ed3e9;
+    border: 1px solid transparent;
     color: #fff;
 }
 
 #cancelarEd {
-    margin: 0 0 0 70%;
     background-color: #e92e2e;
+    border: 1px solid transparent;
     color: #fff;
 }
 
@@ -508,3 +527,9 @@ button {
     cursor: pointer;
     /* Altera o cursor para pointer */
 }
+
+@media (max-width: 768px) {
+    .modal-content-editar {
+        height: 115vh;
+    }
+  }

@@ -59,7 +59,7 @@ function responderPe() {
     let resposta = {
         resposta: respostaPe,
         usuario: usuarioRe,
-        id: id
+        id_perguntas: id
     };
 
 
@@ -80,7 +80,7 @@ function mostrarRespostas() {
     respostas = JSON.parse(localStorage.getItem("respostas"))
 
     for (let i = 0; i < respostas.length; i++) {
-        if (peEspecifica.id === respostas[i].id) {
+        if (peEspecifica.id === respostas[i].id_perguntas) {
             let resposta = respostas[i].resposta;
             let usuarioDaRe = respostas[i].usuario;
             document.getElementById("resposta").innerHTML += `   
@@ -106,11 +106,11 @@ function exibirElementos() {
     if(usuario == null) {
         document.getElementById("irPgLogin").style.display = "show";
         document.getElementById("irPgCadastro").style.display = "show";
-        document.getElementById("irPgPergunta").style.margin = "0 0 0 68%";
+        document.getElementById("irPgPergunta").style.margin = "0 0 0 62vw";
     }else {
         document.getElementById("irPgLogin").style.display = "none";
         document.getElementById("irPgCadastro").style.display = "none";
-        document.getElementById("irPgPergunta").style.margin = "0 0 0 80%";
+        document.getElementById("irPgPergunta").style.margin = "0 0 0 75.5vw";
     }
 }
 
@@ -191,8 +191,8 @@ function excluirPergunta() {
     let respostas = JSON.parse(localStorage.getItem("respostas"));
 
     for (let resposta of respostas) {
-        if (resposta.id == perguntaParaExcluirId) {
-            respostas = respostas.filter(resposta => resposta.id != perguntaParaExcluirId)
+        if (resposta.id_perguntas == perguntaParaExcluirId) {
+            respostas = respostas.filter(resposta => resposta.id_perguntas != perguntaParaExcluirId)
             localStorage.setItem("respostas", JSON.stringify(respostas))
         }
     }
