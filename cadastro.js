@@ -72,21 +72,21 @@ function login() {
         let emailLogin = document.getElementById("emailLo").value;
         let senhaLogin = document.getElementById("senhaLo").value;
         let pos = indexOfByEmail(emailLogin);
-        let usernameLogin = cadastro[pos].username
-
-        let user = {
-            username: usernameLogin,
-            email: emailLogin,
-            senha: senhaLogin
-        }
+        console.log(pos)
+        
         if (pos === -1) {
             aviso.innerHTML = "Email não encontrado!";
         } else {
+            let user = {
+                username: cadastro[pos].username,
+                email: emailLogin,
+                senha: senhaLogin
+            }
             let userLogado = cadastro[pos];
             if (userLogado.senha === senhaLogin) {
-                logado = user;  // Definir usuário logado
-                salvarLogin();  // Salvar login no localStorage
-                window.location.href = "index.html";  // Redireciona para a página principal após o login
+                logado = user; 
+                salvarLogin();  
+                window.location.href = "index.html";  
             } else {
                 aviso.innerHTML = "Senha inválida!";
             }

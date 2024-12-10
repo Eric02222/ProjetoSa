@@ -115,7 +115,7 @@ function exibirPe() {
                 <h3 id="tituloPe">Nenhuma Pergunta Criada</h3>
             </div>`;
     }
-
+    
 }
 
 function exibirElementos() {
@@ -151,9 +151,8 @@ window.onclick = function (event) {
 }
 
 window.onload = function () {
-    carregarElementosCadastro()
-    carregarElementosPergunta()
     carregarPe();
     exibirElementos();
     exibirPe();
 }
+
