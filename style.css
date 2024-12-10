@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -50,7 +49,7 @@ header {
     box-sizing: border-box;
     padding: 1% 0 0.1% 0;
     margin: 0 0 0 0;
-    background-image: linear-gradient(#7cffe3, #ffffff); 
+    background-image: linear-gradient(#7cffe3, #ffffff);
 }
 
 #nomeSite {
@@ -109,7 +108,7 @@ button {
 #irPgLogin:hover,
 #loginBu:hover,
 #registroBu:hover,
-#enviarPergunta:hover{
+#enviarPergunta:hover {
     background-color: #2ed3e9;
     color: #fff;
 }
@@ -124,7 +123,7 @@ button {
 #editarPe:hover,
 #excluirPergunta:hover,
 #EnviarEd:hover,
-#enviarResposta:hover  {
+#enviarResposta:hover {
     background-color: #fff;
     border: 1px solid #2ed3e9;
     transition: 0.5s;
@@ -134,7 +133,7 @@ button {
 
 #excluirPe:hover,
 #cancelarEx:hover,
-#cancelarEd:hover{
+#cancelarEd:hover {
     background-color: #fff;
     border: 1px solid #e92e2e;
     transition: 0.5s;
@@ -203,7 +202,7 @@ button {
 }
 
 #emailLo,
-#senhaLo{
+#senhaLo {
     margin: 0 0 5% 0;
     width: 90%;
     height: 25px;
@@ -225,7 +224,7 @@ button {
 #editarPe {
     margin: 1vw 0 0 11vw;
     background-color: #2ed3e9;
-    padding: 0.5vw ;
+    padding: 0.5vw;
     border: 1px solid transparent;
     color: #fff;
 }
@@ -334,6 +333,11 @@ button {
     margin: 1% 0 1% 1%;
     font-size: 1rem;
     font-weight: 600;
+    background-color: #bffff1;
+    border-radius: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    width: 50px;
 }
 
 #descriçaoPe {
@@ -376,8 +380,13 @@ button {
 
 #usuarioPe-completa {
     margin: 2% 3% 2% 3%;
-    font-size: 1.0rem;
+    font-size: 1.1rem;
     font-weight: 600;
+    background-color: #bffff1;
+    border-radius: 5px 5px 5px 5px;
+    padding: 5px 10px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    width: 50px;
 }
 
 #titulo-Completo {
@@ -404,7 +413,7 @@ button {
     background-color: #2ed3e9;
     border: 1px solid transparent;
     color: #fff;
-    
+
 }
 
 #cancelarEx {
@@ -532,4 +541,4 @@ button {
     .modal-content-editar {
         height: 115vh;
     }
-  }
+}
