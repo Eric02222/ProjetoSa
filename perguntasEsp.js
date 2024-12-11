@@ -34,9 +34,9 @@ function irPgPerguntar() {
 
 //Função que carrega a pergunta clicada na pagina
 function mostrarPeComp() {
-
     carregarPe();
     let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
+    localStorage.setItem("respostas", JSON.stringify([]));
 
     if (peEspecifica && peEspecifica.titulo && peEspecifica.descricao && peEspecifica.usuario) {
         document.getElementById("mostrar-Pergunta").innerHTML = `
