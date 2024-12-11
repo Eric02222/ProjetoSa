@@ -11,7 +11,6 @@ function salvarPe() {
     localStorage.setItem("pergunta", JSON.stringify(perguntas));
 }
 
-localStorage.setItem("respostas", JSON.stringify([]));
 
 //Função para levar a pagina de login
 function irPgLogin() {
