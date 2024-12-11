@@ -11,6 +11,8 @@ function salvarPe() {
     localStorage.setItem("pergunta", JSON.stringify(perguntas));
 }
 
+localStorage.setItem("respostas", JSON.stringify([]));
+
 //Função para levar a pagina de login
 function irPgLogin() {
     window.location.href = "login.html"
@@ -36,7 +38,6 @@ function irPgPerguntar() {
 function mostrarPeComp() {
     carregarPe();
     let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
-    localStorage.setItem("respostas", JSON.stringify([]));
 
     if (peEspecifica && peEspecifica.titulo && peEspecifica.descricao && peEspecifica.usuario) {
         document.getElementById("mostrar-Pergunta").innerHTML = `
