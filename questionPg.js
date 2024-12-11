@@ -14,6 +14,7 @@ function carregarPe() {
 
 
 function salvarPe() {
+    console.log("Cadastrando a questão id: "+perguntas[0].id);
     localStorage.setItem("pergunta", JSON.stringify(perguntas));
 }
 
