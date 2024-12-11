@@ -105,6 +105,7 @@ window.onclick = function (event) {
 
 //Função para gerar perguntas e cadastros predefinidos na pagina caso vazia
 document.addEventListener('DOMContentLoaded', (event) => {
+    localStorage.setItem("respostas", JSON.stringify([]));
     let perguntas = JSON.parse(localStorage.getItem("pergunta")) || []
     if ( perguntas.length === 0) {
         let p1 = {
@@ -159,7 +160,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 // Carregar funções ao carregar a página
 window.onload = function () {
-    localStorage.setItem("respostas", JSON.stringify([]));
     carregarPe();
     exibirElementos();
     exibirPe();
