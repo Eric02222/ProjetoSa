@@ -97,6 +97,8 @@ function mostrarRespostas() {
                 <p id="repostasDaPergunta">${resposta}</p>
                 </div>
             `;
+        }else{
+            break
         }
     }
 }
