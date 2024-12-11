@@ -49,7 +49,7 @@ function registro() {
     } else {
         cadastro.push(user);
         salvarCadastro();
-        window.location = "login.html";  // Redireciona para a tela de login após o cadastro
+        window.location = "login.html";  
     }
 
     usuario.value = null;
@@ -114,16 +114,6 @@ function existe(username, email) {
     return false;
 }
 
-// Função para autenticar o usuário
-function authentica(email, senha) {
-    for (let user of cadastro) {
-        if (user.email === email && user.senha === senha) {
-            return true;
-        }
-    }
-    return false;
-}
-
 // Função para encontrar o índice do usuário pelo email
 function indexOfByEmail(email) {
     for (let i = 0; i < cadastro.length; i++) {
@@ -135,8 +125,7 @@ function indexOfByEmail(email) {
 }
 
 
-
-// Carregar dados ao carregar a página
+// Carregar funções ao carregar a página
 window.onload = function () {
     carregarCadastro();
     carregarLogin();

@@ -1,9 +1,10 @@
 let perguntas = [];
 
-
+// Buscar elementos do DOM
 let titulo = document.getElementById("titulo");
 let descricao = document.getElementById("descricao");
 
+// Função para carregar perguntas do LocalStorage
 function carregarPe() {
     let dados = localStorage.getItem("pergunta");
     if (dados) {
@@ -12,14 +13,16 @@ function carregarPe() {
 
 }
 
-
+// Função para salvar as perguntas no LocalStorage
 function salvarPe() {
     console.log("Cadastrando a questão id: "+perguntas[0].id);
     localStorage.setItem("pergunta", JSON.stringify(perguntas));
 }
 
+//Função para carregar o usuario logado
 carregarLogin();
 
+//Função para enviar a pergunta e salvar no LocalStorage
 function enviarPe() {
     JSON.parse(localStorage.getItem("logado"));
     let id = perguntas.length ? perguntas[perguntas.length - 1].id + 1 : 1;
@@ -47,17 +50,7 @@ function enviarPe() {
 
 }
 
-
-function authentica(titulo, descricao) {
-    for (let i = 0; i < perguntas.length; ++i) {
-        if (perguntas.titulo === titulo && perguntas.descricao === descricao) {
-            return i;
-        }
-    }
-}
-
-
-
+// Carregar funções ao carregar a página
 window.onload = function (){
     carregarPe();
 }

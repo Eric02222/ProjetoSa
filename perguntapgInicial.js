@@ -1,4 +1,6 @@
 let perguntas = [];
+
+// Função para carregar perguntas do localStorage
 function carregarPe() {
     let dados = localStorage.getItem("pergunta");
     if (dados) {
@@ -7,20 +9,32 @@ function carregarPe() {
 
 }
 
+// Função para salvar as perguntas no localStorage
 function salvarPe() {
     localStorage.setItem("pergunta", JSON.stringify(perguntas));
 }
 
+//Função para levar a pagina de login
+function irPgLogin() {
+    window.location.href = "login.html"
+}
+
+//Função para levar a pagina de cadastro
+function irPgCadastro() {
+    window.location.href = "signUp.html"
+}
+
+//Função para carregar a pergunta clicada em outra pagina
 function irPgPerguntaCompleta(index) {
     localStorage.setItem("peEspecifica", JSON.stringify([]));
 
-
     localStorage.setItem("peEspecifica", JSON.stringify(perguntas[index]));
-
 
     window.location.href = "mostrarPe.html";
 }
 
+
+//Função que leva para pagina de criar perguntas
 function irPgPerguntar() {
     logado = JSON.parse(localStorage.getItem("logado"));
     if (logado == null) {
@@ -30,14 +44,7 @@ function irPgPerguntar() {
     }
 }
 
-function irPgLogin() {
-    window.location.href = "login.html"
-}
-
-function irPgCadastro() {
-    window.location.href = "signUp.html"
-}
-
+//Função para carregarr a pergunta na pagina inicial
 function exibirPe() {
     if (perguntas != null && perguntas.length > 0) {
         for (let i = 0; i < perguntas.length; i++) {
@@ -63,6 +70,7 @@ function exibirPe() {
 
 }
 
+//Função para mostrar ou esconder botões caso logado ou não
 function exibirElementos() {
     let usuario = JSON.parse(localStorage.getItem("logado"));
     if (usuario == null) {
@@ -95,10 +103,10 @@ window.onclick = function (event) {
     }
 }
 
-
+//Função para gerar perguntas e cadastros predefinidos na pagina caso vazia
 document.addEventListener('DOMContentLoaded', (event) => {
-    event.preventDefault();
-    if (JSON.parse(localStorage.getItem("pergunta")).length == 0) {
+    let perguntas = JSON.parse(localStorage.getItem("pergunta")) || []
+    if ( perguntas.length === 0) {
         let p1 = {
             usuario: "Eliete",
             email: "eliete@gmail.com",
@@ -149,6 +157,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 });
 
+// Carregar funções ao carregar a página
 window.onload = function () {
     carregarPe();
     exibirElementos();

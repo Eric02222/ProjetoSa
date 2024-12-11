@@ -1,3 +1,4 @@
+// Função para carregar perguntas do localStorage
 function carregarPe() {
     let dados = localStorage.getItem("pergunta");
     if (dados) {
@@ -5,10 +6,22 @@ function carregarPe() {
     }
 }
 
+// Função para salvar as perguntas no localStorage
 function salvarPe() {
     localStorage.setItem("pergunta", JSON.stringify(perguntas));
 }
 
+//Função para levar a pagina de login
+function irPgLogin() {
+    window.location.href = "login.html"
+}
+
+//Função para levar a pagina de cadastro
+function irPgCadastro() {
+    window.location.href = "signUp.html"
+}
+
+//Função para carregar a pergunta clicada em outra pagina
 function irPgPerguntar() {
     logado = JSON.parse(localStorage.getItem("logado"));
     if (logado == null) {
@@ -18,15 +31,8 @@ function irPgPerguntar() {
     }
 }
 
-function irPgLogin() {
-    window.location.href = "login.html"
-}
 
-function irPgCadastro() {
-    window.location.href = "signUp.html"
-}
-
-
+//Função que carrega a pergunta clicada na pagina
 function mostrarPeComp() {
 
     carregarPe();
@@ -41,6 +47,7 @@ function mostrarPeComp() {
 
 }
 
+//Função para enviar resposta da pergunta carregada
 function responderPe() {
     carregarPe()
     let pergunta = JSON.parse(localStorage.getItem("peEspecifica"));
@@ -50,9 +57,9 @@ function responderPe() {
     const respostas = JSON.parse(localStorage.getItem("respostas")) || [];
     let id = pergunta.id;
 
-    if(logado === null){
+    if (logado === null) {
         usuarioRe = "Usuário anônimo"
-    }else{
+    } else {
         usuarioRe = logado.username
     }
 
@@ -72,9 +79,10 @@ function responderPe() {
     }
 
     respostaPe = document.getElementById("responder").value = null;
-    
 }
 
+
+//Função para carregar respostas da pergunta carregada
 function mostrarRespostas() {
     let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
     respostas = JSON.parse(localStorage.getItem("respostas"))
@@ -93,27 +101,32 @@ function mostrarRespostas() {
     }
 }
 
+//Função para mostrar ou esconder botões
 function exibirElementos() {
+
+    //Vai esconder os botões de excluir e edicar a pergunta caso não for o mesmo usuario que a criou
     let usuario = JSON.parse(localStorage.getItem("logado"));
     let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
-    if(usuario == null || peEspecifica.usuario != usuario.username && peEspecifica.email != usuario.email) {
+    if (usuario == null || peEspecifica.usuario != usuario.username && peEspecifica.email != usuario.email) {
         document.getElementById("botoesEd").style.display = "none";
-    }else {
+    } else {
         document.getElementById("botoesEd").style.display = "block";
-    
+
     }
 
-    if(usuario == null) {
+    //Vai esconder os botões de cadastro e login, caso ja logado
+    if (usuario == null) {
         document.getElementById("irPgLogin").style.display = "show";
         document.getElementById("irPgCadastro").style.display = "show";
         document.getElementById("irPgPergunta").style.margin = "0 0 0 62vw";
-    }else {
+    } else {
         document.getElementById("irPgLogin").style.display = "none";
         document.getElementById("irPgCadastro").style.display = "none";
         document.getElementById("irPgPergunta").style.margin = "0 0 0 75.5vw";
     }
 }
 
+//função para abrir o modal de editar a pergunta carregada
 function editarPe() {
     let usuario = JSON.parse(localStorage.getItem("logado"));
     let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
@@ -133,6 +146,7 @@ function editarPe() {
     }
 }
 
+//Função para adiquirir elementos da pergunta carregada para o modal
 function mostrarModalEditar(titulo, descricao, id) {
     perguntaParaEditarId = id;
     tituloElemento = titulo;
@@ -141,6 +155,7 @@ function mostrarModalEditar(titulo, descricao, id) {
     modalEditar.style.display = "block";
 }
 
+//Função que vai salvar a edição da pergunta no localstorage
 function editarPergunta() {
     let perguntas = JSON.parse(localStorage.getItem("pergunta"));
     let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
@@ -150,12 +165,11 @@ function editarPergunta() {
 
     for (let pergunta of perguntas) {
         if (pergunta.id === perguntaParaEditarId) {
-            //console.log(pergunta.id)
             pergunta.titulo = edTitulo;
             pergunta.descricao = edDescricao;
             peEspecifica.titulo = edTitulo;
             peEspecifica.descricao = edDescricao;
-            
+
         }
     }
     localStorage.setItem("pergunta", JSON.stringify(perguntas));
@@ -164,6 +178,7 @@ function editarPergunta() {
 
 }
 
+//função para abrir o modal de excluir a pergunta carregada
 function excluirPe() {
     let peEspecifica = JSON.parse(localStorage.getItem("peEspecifica"));
     let usuario = JSON.parse(localStorage.getItem("logado"));
@@ -179,6 +194,7 @@ function excluirPe() {
 
 }
 
+//Função para adiquirir elementos da pergunta carregada para o modal
 function mostrarModalExcluir(descricao, id) {
     perguntaParaExcluirId = id;
 
@@ -186,6 +202,7 @@ function mostrarModalExcluir(descricao, id) {
     modalExcluir.style.display = "block";
 }
 
+//Função que vai excluir a pergunta no localstorage
 function excluirPergunta() {
     let perguntas = JSON.parse(localStorage.getItem("pergunta"));
     let respostas = JSON.parse(localStorage.getItem("respostas"));
@@ -194,6 +211,8 @@ function excluirPergunta() {
         if (resposta.id_perguntas == perguntaParaExcluirId) {
             respostas = respostas.filter(resposta => resposta.id_perguntas != perguntaParaExcluirId)
             localStorage.setItem("respostas", JSON.stringify(respostas))
+        } else {
+            break;
         }
     }
 
@@ -204,6 +223,7 @@ function excluirPergunta() {
     window.location.href = "index.html";
 }
 
+//Função para fechar os modals de edição e exclusão
 function cancelar() {
     modalEditar.style.display = "none";
     modalExcluir.style.display = "none";
@@ -229,6 +249,7 @@ window.onclick = function (event) {
     }
 }
 
+// Carregar funções ao carregar a página
 window.onload = function () {
     carregarPe()
     exibirElementos()
