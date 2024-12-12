@@ -288,12 +288,14 @@ button {
 
 #titulo {
     margin: 2% 2% 2% 2%;
-    padding: 0.5% 86% 18% 0.5%;
+    width: 95.5%;
+    padding: 0.5% 0 18% 0.5%;
 }
 
 #descricao {
     margin: 2% 2% 2% 2%;
-    padding: 0.5% 86% 18% 0.5%;
+    width: 95.5%;
+    padding: 0.5% 0 18% 0.5%;
 }
 
 #avisoCriarPe {
