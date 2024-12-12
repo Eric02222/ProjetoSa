@@ -49,7 +49,7 @@ function registro() {
     } else {
         cadastro.push(user);
         salvarCadastro();
-        window.location = "login.html";  
+        window.location = "login.html";
     }
 
     usuario.value = null;
@@ -60,10 +60,6 @@ function registro() {
 // Função de login
 function login() {
 
-    if (!email || !senha) {
-        aviso.innerHTML = "Preencha todos os campos";
-    }
-    
     // Verificar se já há alguém logado
     if (logado != null) {
         aviso.innerHTML = "Você já está logado!";
@@ -73,9 +69,11 @@ function login() {
         let senhaLogin = document.getElementById("senhaLo").value;
         let pos = indexOfByEmail(emailLogin);
         console.log(pos)
-        
+
         if (pos === -1) {
             aviso.innerHTML = "Email não encontrado!";
+            document.getElementById("emailLo").value = null;
+            document.getElementById("senhaLo").value = null;
         } else {
             let user = {
                 username: cadastro[pos].username,
@@ -84,18 +82,17 @@ function login() {
             }
             let userLogado = cadastro[pos];
             if (userLogado.senha === senhaLogin) {
-                logado = user; 
-                salvarLogin();  
+                logado = user;
+                salvarLogin();
                 window.location.href = "index.html";  
             } else {
                 aviso.innerHTML = "Senha inválida!";
+                document.getElementById("emailLo").value = null;
+                document.getElementById("senhaLo").value = null;
             }
         }
     }
 
-   
-    document.getElementById("emailLo").value = null;
-    document.getElementById("senhaLo").value = null;
 }
 
 // Função de logout

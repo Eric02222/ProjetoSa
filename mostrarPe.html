@@ -13,13 +13,15 @@
         <header>
             <div class="cabecario">
                 <a href="index.html" id="nomeSite" onclick="limparPe()">Askify</a>
+            </div>
 
+            <div class="botoesCab">
                 <button id="irPgPergunta" onclick="irPgPerguntar()">Perguntar</button>
                 <button id="irPgLogin" onclick="irPgLogin()">Login</button>
                 <button id="irPgCadastro" onclick="irPgCadastro()">Cadastro</button>
                 <button id="deslogar" onclick="logout()">Logout</button>
-
             </div>
+
         </header>
 
         <div class="mostrar-Pergunta" id="mostrar-Pergunta">
@@ -30,7 +32,7 @@
             <button id="editarPe" onclick="editarPe()">Editar</button>
             <button id="excluirPe" onclick="excluirPe()">Excluir</button>
         </div>
-        
+
 
         <p id="negarAcesso"></p>
 
@@ -44,9 +46,13 @@
                 <textarea type="text" id="edDescricao"></textarea><br>
                 <p id="aviso"></p>
 
-                <button id="EnviarEd" onclick="editarPergunta()">Editar Pergunta</button>
-                <button id="cancelarEd" onclick="cancelar()">Cancelar</button>
+                <div class="botoesEd">
+                    <button id="EnviarEd" onclick="editarPergunta()">Editar Pergunta</button>
+                    <button id="cancelarEd" onclick="cancelar()">Cancelar</button>
+                </div>
+
             </div>
+
         </div>
 
         <div class="respostas" id="envResposta">
@@ -66,8 +72,12 @@
         <div id="modalExcluir" class="modal">
             <div class="modal-content-excluir">
                 <p id="avisoExluirPe">Deseja excluir esta Pergunta?</p>
-                <button id="excluirPergunta" onclick="excluirPergunta()">Sim</button>
-                <button id="cancelarEx" onclick="cancelar()">Não</button>
+
+                <div class="botoesEx">
+                    <button id="excluirPergunta" onclick="excluirPergunta()">Sim</button>
+                    <button id="cancelarEx" onclick="cancelar()">Não</button>
+                </div>
+
             </div>
         </div>
 
