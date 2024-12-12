@@ -120,9 +120,11 @@ function exibirElementos() {
     if (usuario == null) {
         document.getElementById("irPgLogin").style.display = "show";
         document.getElementById("irPgCadastro").style.display = "show";
+        document.getElementById("deslogar").style.display = "none";
     } else {
         document.getElementById("irPgLogin").style.display = "none";
         document.getElementById("irPgCadastro").style.display = "none";
+        document.getElementById("deslogar").style.display = "show";
     }
 }
 
