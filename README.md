@@ -6,9 +6,6 @@ Projeto desenvolvido na primeira fase do curso de Desenvolvimento de Sistemas do
 
 # Equipe de desenvolvimento
 - Eric Mara de Oliveira;
-- Ana Paula;
-- Jessica Almeida;
-- Elionai;
 
 # Desing do site
 -link para visualização do desing
